@@ -1,0 +1,108 @@
+/*When a dashboard option is selected*/
+div.active-option {
+    background-color: white !important;
+}
+
+/*Apply this css effect to any dashboard option svg image vector*/
+div.dashboard-option:hover div svg {
+    fill: #075E54;
+}
+/*When a dashboard option is selected*/
+div.active-option div svg {
+    fill: #075E54 !important;
+}
+
+/*Corrects css transform property of mailer and guest svgs*/
+div.mailer svg, div.guest svg {
+    transform: translateX(0);
+}
+
+/*Apply this style to any dashboard option container*/
+div.dashboard-option:hover {
+    background-color: white;
+}
+
+/*Hides the mailer container tag*/
+div.mailer {
+    display: none;
+}
+
+/*Dashboard container*/
+div.dashboard {
+    display: flex;
+}
+
+/*Big views*/
+div.views {
+    position: relative;
+    overflow-y: auto;
+    z-index: 0;
+}
+
+/*Svg basic design*/
+div.dashboard-option div svg, div.mailer svg, div.guest svg {
+    transform: translateX(-5px);
+    transition: fill 400ms;
+    cursor: pointer;
+    fill: #FFF;
+}
+
+/*Global title*/
+div.big-title {
+    font-weight: 400;
+    font-size: 18px;
+    color: #fff;
+    width: 100%;
+}
+
+/*Views manager*/
+div.views-manager {
+    position: relative;
+    overflow-y: auto;
+    height: 100%;
+    z-index: 0;
+}
+
+/*Global page data*/
+div.page-data {
+    flex-direction: column;
+    position: relative;
+    display: flex;
+    width: 100%;
+    z-index: 0;
+}
+
+/*Slider menu design*/
+div.slider-menu {
+    background-color: #075E54;
+    justify-content: center;
+    flex-direction: column;
+    padding-right: 10px;
+    align-items: center;
+    display: flex;
+    gap: 15px;
+}
+
+/*Apply this css style to any element considered as a dashboard option*/
+div.dashboard-option {
+    transition: background-color 400ms;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+/*Page global header*/
+div.header {
+    border-right: 1px solid white;
+    background-color: #075E54;
+    box-shadow: 0 0 4px black;
+    padding: 5px 10px 5px 10px;
+    justify-content: center;
+    position: relative;
+    display: flex;
+    z-index: 1;
+    gap: 20px;
+}

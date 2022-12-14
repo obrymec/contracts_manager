@@ -1,0 +1,126 @@
+/*Generic card icon*/
+div.card-icon > svg {
+	transform: translateY(-5px);
+}
+
+/*Card and widget option hover*/
+button.card-option:hover, button.widget-option:hover, div.msg-options > button:hover {
+	background-color: #04463e;
+}
+
+/*Card index label*/
+div.ci > label {
+	transform: translate(1px, 0.5px);
+	display: inline-block;
+}
+
+/*Widget icon*/
+div.widget-icon > svg {
+	transform: translateY(1.5px);
+	cursor: pointer;
+}
+
+/*Generic data card*/
+div.data-card {
+	box-shadow: 0 0 4px gray;
+	background-color: #fff;
+}
+
+/*Widget content*/
+div.widget-content {
+	overflow-y: auto;
+	height: 100%;
+}
+
+/*Disabled button*/
+button.disabled {
+	background-color: rgb(220, 220, 220);
+	text-shadow: 0 0 6px white;
+	pointer-events: none;
+}
+
+/*Generic card options*/
+div.card-options, div.widget-options {
+	justify-content: flex-end;
+	display: flex;
+	gap: 15px;
+}
+
+/*Generic card attributes and data*/
+div.card-attr, div.card-datum {
+	font-family: verdana;
+	margin-bottom: 15px;
+	color: #343434;
+	font-size: 15px;
+}
+
+/*Generic card content*/
+div.card-content {
+	padding: 15px 15px 0 15px;
+	align-items: center;
+	display: flex;
+	gap: 15px;
+}
+
+/*Generic widget box*/
+div.widget-box {
+	background-color: rgba(0, 0, 0, 0.8);
+	justify-content: center;
+	align-items: center;
+	display: none;
+	opacity: 0;
+}
+
+/*Generic card header*/
+div.card-header, div.widget-header {
+	border-bottom: 1px ridge gray;
+	background-color: #075E54;
+	padding: 6px 10px 6px 10px;
+	font-family: verdana;
+	align-items: center;
+}
+
+/*Generic card title*/
+div.ctt, div.widget-title {
+	letter-spacing: 1.5px;
+	font-family: verdana;
+	font-size: 16px;
+	color: #fff;
+	width: 100%;
+}
+
+/*Generic card index*/
+div.ci {
+	transform: translateY(-0.5px);
+	padding: 4px 8px 4px 8px;
+	background-color: #FFF;
+	border-radius: 25px;
+	text-align: center;
+	color: #075E54;
+	font-size: 14px;
+}
+
+/*Widget container*/
+div.widget-container {
+	transition-property: transform, opacity;
+	box-shadow: 0 0 6px #000;
+	transition-duration: 0.2s;
+	background-color: #fff;
+	flex-direction: column;
+	display: flex;
+	opacity: 0;
+}
+
+/*Generic card option*/
+button.card-option, button.widget-option, div.msg-options > button {
+	box-shadow: 0 1px 3px grey;
+	box-shadow: 0 0 3px black;
+	background-color: #075E54;
+	padding: 8px 8px 8px 8px;
+	letter-spacing: 1.5px;
+	font-family: verdana;
+	border-radius: 3px;
+	font-size: 14px;
+	color: white;
+	width: 160px;
+}

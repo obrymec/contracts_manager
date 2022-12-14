@@ -1,0 +1,22 @@
+{
+    "name": "contracts-manager",
+    "version": "0.4.6",
+    "description": "A simple web app for managing contacts.",
+    "main": "server.js",
+    "author": "Obrymec",
+    "license": "MIT",
+    "scripts": {
+        "start": "nodemon server.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.1",
+        "dotenv": "^16.0.0",
+        "email-validator": "^2.0.4",
+        "express": "^4.17.2",
+        "mongodb": "^4.3.1",
+        "nodemailer": "^6.7.2",
+        "nodemon": "^2.0.15",
+        "password-validator": "^5.2.1",
+        "underscore": "^1.13.2"
+    }
+}

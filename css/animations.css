@@ -1,0 +1,55 @@
+/*Text bloom animation*/
+@keyframes textbloom {
+    from {
+        text-shadow: 0 0 0 transparent;
+    } to {
+        text-shadow: 0 0 15px #fff;
+    }
+}
+
+/*Translation animation*/
+@keyframes translate {
+    from {
+        transform: translateY(-120%);
+    } to {
+        transform: translateY(0);
+    }
+}
+
+/*Rotation animation*/
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+
+/*Scaling animation*/
+@keyframes scale {
+    from {
+        transform: scale(0);
+    } to {
+        transform: scale(1);
+    }
+}
+
+/*Fadeout animation*/
+@keyframes fadeout {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+/*Fields resize animation*/
+@keyframes field_resize {
+    from {
+        opacity: 0;
+        width: 0;
+    } to {
+        width: 250px;
+        opacity: 1;
+    }
+}

@@ -1,0 +1,168 @@
+/*Target the virtual placeholder*/
+input.input:focus ~ label.placeholder, input.input:not(:placeholder-shown) ~ label.placeholder {
+    transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+/*Button hover*/
+button.submit:hover {
+    background-color: rgba(5, 116, 186, 0.823);
+}
+
+/*Target the virtual placeholder*/
+input.input:focus ~ div.cut, input.input:not(:placeholder-shown) ~ div.cut {
+    transform: translateY(8px);
+}
+
+/*Submit button active slot*/
+button.submit:active {
+    background-color: #06b;
+}
+
+/*Email field container*/
+div.ic1 {
+    margin-top: 40px;
+}
+
+/*Password and his confirmation containers*/
+div.ic2 {
+    margin-top: 30px;
+}
+
+/*Target the current placeholder to change his color*/
+input.input:not(:placeholder-shown) ~ label.placeholder {
+    color: #808097;
+}
+
+/*For placeholder focus*/
+input.input:focus ~ label.placeholder {
+    color: #dc2f55;
+}
+
+/*Login button*/
+button.sign-up {
+    margin-top: 10px;
+}
+
+/*Sign up button link*/
+button.sign-up-login {
+    margin-top: 10px;
+}
+
+/*Password cut*/
+div.password-cut {
+    width: 105px;
+}
+
+/*Confirm password cut*/
+div.confirm-password-cut {
+    width: 172px;
+}
+
+/*Email cut*/
+div.email-cut {
+    width: 55px;
+}
+
+/*Pseudo cut*/
+div.pseudo-cut {
+    width: 66px;
+}
+
+/*Input container*/
+div.input-container {
+    position: relative;
+    height: 50px;
+    width: 100%;
+}
+
+/*Sign page container*/
+div.sign {
+    background-color: #000;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+}
+
+/*Title text container*/
+div.title {
+    font-family: sans-serif;
+    font-weight: 600;
+    margin-top: 25px;
+    font-size: 36px;
+    color: #eee;
+}
+
+/*Sign up form container*/
+div.form {
+    background-color: #15172b;
+    box-sizing: border-box;
+    border-radius: 20px;
+    height: 610px;
+    padding: 20px;
+    width: 320px;
+}
+
+/*Login form container*/
+div.login {
+    background-color: #15172b;
+    box-sizing: border-box;
+    border-radius: 20px;
+    height: 500px;
+    padding: 20px;
+    width: 320px;
+}
+
+/*Cutter*/
+div.cut {
+    background-color: #15172b;
+    transition: transform 200ms;
+    transform: translateY(0);
+    border-radius: 10px;
+    position: absolute;
+    height: 20px;
+    left: 20px;
+    top: -20px;
+}
+
+/*Virtual placeholder label design*/
+label.placeholder {
+    transition: transform 200ms, color 200ms;
+    font-family: sans-serif;
+    transform-origin: 0 50%;
+    pointer-events: none;
+    position: absolute;
+    line-height: 14px;
+    color: #65657b;
+    left: 20px;
+    top: 20px;
+}
+
+/*For any input*/
+input.input {
+    background-color: #303245;
+    box-sizing: border-box;
+    border-radius: 12px;
+    padding: 4px 20px 0;
+    font-size: 18px;
+    color: #eee;
+    height: 100%;
+    width: 100%;
+    outline: 0;
+    border: 0;
+}
+
+/*Submit button*/
+button.submit {
+    background-color: #08d;
+    box-sizing: border-box;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #eee;
+    height: 50px;
+    width: 100%;
+    outline: 0;
+    border: 0;
+}

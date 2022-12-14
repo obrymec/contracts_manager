@@ -1,0 +1,63 @@
+/*Message box container*/
+div.msg-container {
+	box-shadow: 0 0 10px #000;
+}
+
+/*Message box button option*/
+div.msg-options > button {
+	width: 120px;
+}
+
+/*Message box*/
+div.message-box {
+	background-color: rgba(0, 0, 0, 0.8);
+	justify-content: center;
+	align-items: center;
+	display: none;
+	opacity: 0;
+}
+
+/*Message box text content*/
+div.text-content {
+	font-family: verdana;
+	text-align: justify;
+	margin-top: -3px;
+	font-size: 15px;
+	width: 100%;
+}
+
+/*Message box content*/
+div.msg-content {
+	padding: 10px 12px 10px 6px;
+	background-color: #fff;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	width: 370px;
+	gap: 10px;
+}
+
+/*Message box options container*/
+div.msg-options {
+	border-bottom-right-radius: 5px;
+	border-top: 1px solid silver;
+	border-bottom-left-radius: 5px;
+	justify-content: flex-end;
+	background-color: #fff;
+	display: none;
+	padding: 10px;
+	gap: 15px;
+}
+
+/*Message box header*/
+div.msg-header {
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	background-color: #075E54;
+	padding: 5px 6px 6px 6px;
+	font-family: verdana;
+	text-align: center;
+	font-weight: bold;
+	font-size: 15px;
+	color: #fff;
+}
