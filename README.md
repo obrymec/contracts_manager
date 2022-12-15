@@ -35,7 +35,7 @@ sudo npm install yarn --global
 
 ### <u>Project cloning</u>:
 ```sh
-git clone git@gitlab.com:obrymec/contracts-manager.git contracts-manager/
+git clone https://github.com/obrymec/Contracts-Manager-Web-App contracts-manager/
 ```
 
 ### <u>Install project dependencies</u>:
