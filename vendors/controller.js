@@ -4,10 +4,9 @@ const email_validator = require ("email-validator");
 const dbmanager = require ("./db_manager.js");
 const mailer = require ("./mail_sender.js");
 const _ = require ("underscore");
-require ("dotenv").config ();
 
 // Database link configurations.
-dbmanager.set_base_link (process.env.MONGO_URI);
+dbmanager.set_base_link ("mongodb+srv://it_manager:appsmanager@cluster0.v0aj1.mongodb.net/?retryWrites=true&w=majority");
 
 // Checks whether a number input field respects the imposed restrictions.
 function _check_number_input (inp, ans) {

@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////[Attributes and dependences]/////////////////////////////////////////////////////
-const {MongoClient, ObjectID} = require ("mongodb");
+const {MongoClient, ObjectID, ServerApiVersion} = require ("mongodb");
 let link = null, client = null;
 
 /////////////////////////////////////////////////////////////////[Private methods]//////////////////////////////////////////////////////////
@@ -130,7 +130,7 @@ module.exports.set_base_link = function set_base_link (new_value) {
 	// Checks the value type.
 	if (typeof new_value === "string") {
 		// Initializes the databases manager system.
-		link = new_value; client = new MongoClient (link, {useNewUrlParser: true, useUnifiedTopology: true});
+		link = new_value; client = new MongoClient (link, {useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1});
 	// Otherwise.
 	} else console.error ("Invalid link value type.");
 }
