@@ -1,0 +1,56 @@
+/**
+* @project: Contracts Manager - https://contracts-manager.onrender.com/
+* @author: Obrymec - obrymecsprinces@gmail.com
+* @fileoverview: The tab control stylesheet.
+* @file: tab_control.css
+* @created: 2022-01-30
+* @updated: 2024-01-07
+* @supported: DESKTOP
+* @version: 0.0.2
+*/
+
+/* Colors theme */
+:root {
+	--primary-color: #075e54;
+	--white: #fff;
+}
+
+/* Content */
+div.tab-content {
+	transform: translate3d(0.0, 0.0, 0.0);
+	overflow-y: auto;
+	height: 100%;
+}
+
+/* Section */
+div.tab-section {
+	transition-property: border-color;
+	transition-duration: 0.3s;
+	padding: 5px 0 5px 0;
+	cursor: pointer;
+}
+
+/* Header */
+div.tab-header {
+	background-color: var(--primary-color);
+	justify-content: flex-end;
+	padding: 0 10px 0 10px;
+	display: inline-flex;
+	align-items: center;
+	position: relative;
+	gap: 25px;
+	top: 0;
+}
+
+/* Label section */
+label.section-text {
+	transition-property: color;
+	transform: translateY(1px);
+	transition-duration: 0.3s;
+	display: inline-block;
+	color: var(--white);
+	font-style: italic;
+	font-family: Arial;
+	cursor: pointer;
+	font-size: 14px;
+}

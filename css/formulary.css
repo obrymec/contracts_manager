@@ -1,78 +1,103 @@
-/*Dropdown icon select hover*/
+/**
+* @project: Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview: The stylesheet for all forms.
+* @author: Obrymec - obrymecsprinces@gmail.com
+* @file: formulary.css
+* @created: 2022-01-30
+* @updated: 2024-01-07
+* @supported: DESKTOP
+* @version: 0.0.2
+*/
+
+/* Colors theme */
+:root {
+	--white-300: rgb(235, 235, 235);
+	--error-color: rgb(255, 0, 76);
+	--primary-color: #075e54;
+	--silver: silver;
+	--white: #fff;
+	--gray: grey;
+}
+
+/* Dropdown icon select hover */
 div.form-field:hover > div.form-drop-arrow > svg > path {
-	stroke: #075E54;
+	stroke: var(--primary-color);
 }
 
-/*Placeholder focus*/
-div.form-field:hover > input::placeholder, div.form-field:hover > textarea::placeholder {
-	color: #075E54;
+/* Placeholder focus */
+div.form-field:hover > textarea::placeholder, 
+div.form-field:hover > input::placeholder {
+	color: var(--primary-color);
 }
 
-/*Hides any tag*/
+/* Hides any tag */
 div.face-off {
 	display: none;
 }
 
-/*Input formulary container*/
+/* Input formulary */
 div.form-container {
 	width: 100%;
 }
 
-/*Input field error*/
-div.field-error > input, div.field-error > textarea, div.field-error > select {
-	box-shadow: 0 0 6px rgb(255, 0, 76);
-	border: 1px solid rgb(255, 0, 76);
+/* Input field error */
+div.field-error > textarea,
+div.field-error > select,
+div.field-error > input {
+	box-shadow: 0 0 6px var(--error-color);
+	border: 1px solid var(--error-color);
 }
 
-/*Dropdown select hover*/
+/* Dropdown select hover */
 div.form-field:hover > select {
-	border: 1px solid #075E54;
-	color: #075E54;
+	border: 1px solid var(--primary-color);
+	color: var(--primary-color);
 }
 
-/*Dropdown select*/
-div.form-field > select {
-	box-shadow: none;
-	height: 36px;
-}
-
-/*Input formulary field*/
+/* Input formulary field */
 div.form-field {
 	align-items: center;
 	display: flex;
 }
 
-/*Dropdown select icon*/
+/* Dropdown select */
+div.form-field > select {
+	box-shadow: none;
+	height: 36px;
+}
+
+/* Dropdown select icon */
 div.form-drop-arrow > svg {
 	transform: translate(-24px, -3px);
 	pointer-events: none;
 	position: absolute;
 }
 
-/*Formulary dual fields*/
+/* Formulary dual fields */
 div.form-dual-fields {
 	display: flex;
 	width: 100%;
 	gap: 15px;
 }
 
-/*Input field placeholder text*/
-div.form-field > input::placeholder, div.form-field > textarea::placeholder {
+/* Input field placeholder text */
+div.form-field > textarea::placeholder,
+div.form-field > input::placeholder {
 	transition: color 0.3s ease-in-out;
+	color: var(--silver);
 	font-style: italic;
 	user-select: none;
-	color: silver;
 }
 
-/*Error message label*/
+/* Error message label */
 div.mgs-error {
-	color: rgb(255, 0, 76);
+	color: var(--error-color);
 	text-align: justify;
 	margin-top: 4px;
 	font-size: 12px;
 }
 
-/*Textarea*/
+/* Textarea */
 div.form-field > textarea {
 	padding-top: 10px;
 	overflow-y: auto;
@@ -80,7 +105,7 @@ div.form-field > textarea {
 	resize: none;
 }
 
-/*Formulary container*/
+/* Formulary container */
 div.formulary {
 	flex-direction: column;
 	align-items: center;
@@ -89,24 +114,26 @@ div.formulary {
 	gap: 15px;
 }
 
-/*Input field disabled*/
+/* Input field disabled */
 div.field-disabled > input {
-	background-color: rgb(235, 235, 235);
-	border: 1px solid silver;
+	background-color: var(--white-300);
+	border: 1px solid var(--silver);
 	pointer-events: none;
+	color: var(--gray);
 	font-weight: bold;
 	box-shadow: none;
 	animation: none;
-	color: grey;
 }
 
-/*Input*/
-div.form-field > input, div.form-field > select, div.form-field > textarea {
+/* Input */
+div.form-field > textarea,
+div.form-field > select,
+div.form-field > input {
 	transition-property: color, box-shadow, border;
+	border: 1px solid var(--silver);
+	background-color: var(--white);
 	padding: 7px 30px 7px 12px;
-	border: 1px solid silver;
 	transition-duration: 0.3s;
-	background-color: #fff;
 	letter-spacing: 1.5px;
 	border-radius: 5px;
 	appearance: none;

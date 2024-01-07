@@ -1,55 +1,71 @@
-/*Text bloom animation*/
+/**
+* @project: Contracts Manager - https://contracts-manager.onrender.com/
+* @author: Obrymec - obrymecsprinces@gmail.com
+* @fileoverview: Animations stylesheet.
+* @file: animations.css
+* @created: 2022-01-30
+* @updated: 2024-01-07
+* @supported: DESKTOP
+* @version: 0.0.2
+*/
+
+/* Colors theme */
+:root {
+	--white: #fff;
+}
+
+/* Text bloom */
 @keyframes textbloom {
-    from {
-        text-shadow: 0 0 0 transparent;
-    } to {
-        text-shadow: 0 0 15px #fff;
-    }
+	from {
+		text-shadow: 0 0 0 transparent;
+	} to {
+		text-shadow: 0 0 15px var(--white);
+	}
 }
 
-/*Translation animation*/
+/* Translation */
 @keyframes translate {
-    from {
-        transform: translateY(-120%);
-    } to {
-        transform: translateY(0);
-    }
+	from {
+		transform: translateY(-120%);
+	} to {
+		transform: translateY(0);
+	}
 }
 
-/*Rotation animation*/
+/* Rotation */
 @keyframes rotate {
-    from {
-        transform: rotate(0);
-    } to {
-        transform: rotate(360deg);
-    }
+	from {
+		transform: rotate(0);
+	} to {
+		transform: rotate(360deg);
+	}
 }
 
-/*Scaling animation*/
+/* Scaling */
 @keyframes scale {
-    from {
-        transform: scale(0);
-    } to {
-        transform: scale(1);
-    }
+	from {
+		transform: scale(0);
+	} to {
+		transform: scale(1);
+	}
 }
 
-/*Fadeout animation*/
+/* Fadeout */
 @keyframes fadeout {
-    from {
-        opacity: 0;
-    } to {
-        opacity: 1;
-    }
+	from {
+		opacity: 0;
+	} to {
+		opacity: 1;
+	}
 }
 
-/*Fields resize animation*/
+/* Fields resize */
 @keyframes field_resize {
-    from {
-        opacity: 0;
-        width: 0;
-    } to {
-        width: 250px;
-        opacity: 1;
-    }
+	from {
+		opacity: 0;
+		width: 0;
+	} to {
+		width: 250px;
+		opacity: 1;
+	}
 }

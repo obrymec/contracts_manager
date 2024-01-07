@@ -1,25 +1,42 @@
-/*Label basics style configurations*/
+/**
+* @project: Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview: The main stylesheet of the application.
+* @author: Obrymec - obrymecsprinces@gmail.com
+* @created: 2022-01-30
+* @updated: 2024-01-07
+* @supported: DESKTOP
+* @file: index.css
+* @version: 0.0.2
+*/
+
+/* Colors theme */
+:root {
+	--white: #fff;
+	--gray: grey;
+}
+
+/* Label */
 label {
 	letter-spacing: 1.5px;
-    font-family: cursive;
+	font-family: cursive;
 	user-select: none;
 }
 
-/*Vertical flex box*/
+/* Vertical flexbox */
 .vflex {
 	flex-direction: column;
 	display: flex;
 	height: 100%;
 }
 
-/*Centered graphic message*/
+/* Centered message */
 .grc-msg {
 	font-family: verdana;
+	color: var(--gray);
 	font-size: 17px;
-	color: grey;
 }
 
-/*Basic center design*/
+/* Basic center */
 .center {
 	transform: translate(-50%, -50%);
 	position: absolute;
@@ -27,23 +44,24 @@ label {
 	top: 50%;
 }
 
-/*Body basics style configurations*/
+/* Body */
 body {
-	background-color: #fff;
+	background-color: var(--white);
 	overflow: hidden;
 	padding: 0;
 	margin: 0;
 }
 
-/*Buttons basics design configurations*/
-input[type="button"], button {
+/* Buttons */
+input[type="button"],
+button {
 	user-select: none;
 	cursor: pointer;
 	outline: none;
 	border: none;
 }
 
-/*Fixed element*/
+/* Fixed element */
 .fixed {
 	position: fixed;
 	z-index: 0;

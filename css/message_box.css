@@ -1,23 +1,43 @@
-/*Message box container*/
-div.msg-container {
-	box-shadow: 0 0 10px #000;
+/**
+* @project: Contracts Manager - https://contracts-manager.onrender.com/
+* @author: Obrymec - obrymecsprinces@gmail.com
+* @fileoverview: The message box stylesheet.
+* @file: message_box.css
+* @created: 2022-01-30
+* @updated: 2024-01-07
+* @supported: DESKTOP
+* @version: 0.0.2
+*/
+
+/* Colors theme */
+:root {
+	--slight-black: rgba(0, 0, 0, 0.8);
+	--primary-color: #075e54;
+	--silver: silver;
+	--black: #000;
+	--white: #fff;
 }
 
-/*Message box button option*/
+/* Global container */
+div.msg-container {
+	box-shadow: 0 0 10px var(--black);
+}
+
+/* Button option */
 div.msg-options > button {
 	width: 120px;
 }
 
-/*Message box*/
+/* Root container */
 div.message-box {
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: var(--slight-black);
 	justify-content: center;
 	align-items: center;
 	display: none;
 	opacity: 0;
 }
 
-/*Message box text content*/
+/* Text content */
 div.text-content {
 	font-family: verdana;
 	text-align: justify;
@@ -26,10 +46,10 @@ div.text-content {
 	width: 100%;
 }
 
-/*Message box content*/
+/* Content */
 div.msg-content {
+	background-color: var(--white);
 	padding: 10px 12px 10px 6px;
-	background-color: #fff;
 	justify-content: center;
 	align-items: center;
 	display: flex;
@@ -37,27 +57,27 @@ div.msg-content {
 	gap: 10px;
 }
 
-/*Message box options container*/
+/* Options container */
 div.msg-options {
+	border-top: 1px solid var(--silver);
 	border-bottom-right-radius: 5px;
-	border-top: 1px solid silver;
 	border-bottom-left-radius: 5px;
+	background-color: var(--white);
 	justify-content: flex-end;
-	background-color: #fff;
 	display: none;
 	padding: 10px;
 	gap: 15px;
 }
 
-/*Message box header*/
+/* Header */
 div.msg-header {
+	background-color: var(--primary-color);
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
-	background-color: #075E54;
 	padding: 5px 6px 6px 6px;
 	font-family: verdana;
+	color: var(--white);
 	text-align: center;
 	font-weight: bold;
 	font-size: 15px;
-	color: #fff;
 }

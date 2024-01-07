@@ -1,41 +1,204 @@
-// Dependencies.
-const controller = require ("./vendors/controller.js");
-const port = (process.env.PORT || 5000);
+/**
+* @fileoverview Defines routes, paths and nodejs server configs with expressjs.
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @author Obrymec - obrymecsprinces@gmail.com
+* @created 2022-01-30
+* @updated 2024-01-07
+* @supported DESKTOP
+* @file server.js
+* @version 0.0.2
+*/
+
+// Plugin dependencies.
 const parser = require ("body-parser");
 const express = require ("express");
 const app = express ();
+const port = 5300;
+
+// Custom dependencies.
+const api = require ("./vendors/api.js");
 
 // App configurations.
-app.use (parser.urlencoded (new Object ({extended: true})));
-app.use (express.static (__dirname));
 app.use (parser.json ());
+app.use (
+  express.static (
+    __dirname
+  )
+);
+app.use (
+  parser.urlencoded ({
+    extended: true
+  })
+);
 
-// App routes.
-app.get ('/', (req, res) => {res.sendFile ("index.html", new Object ({root: __dirname}));});
-// For "employees-availables" operation.
-app.get ("/employees-availables", (req, res) => controller.load_availables_employees (null, result => res.send (result)));
-// For "running-contracts" operation.
-app.get ("/running-contracts", (req, res) => controller.load_running_contracts (null, result => res.send (result)));
-// For "expired-contracts" operation.
-app.get ("/expired-contracts", (req, res) => controller.load_expired_contracts (null, result => res.send (result)));
-// For "add-employee" operation.
-app.post ("/add-employee", (req, res) => controller.add_employee (req.body.data, result => res.send (result)));
-// For "add-contract" operation.
-app.post ("/add-contract", (req, res) => controller.add_contract (req.body.data, result => res.send (result)));
-// For "override-contract" operation.
-app.post ("/override-contract", (req, res) => controller.override_contract (req.body.data, result => res.send (result)));
-// For "remove-contract" operation.
-app.post ("/remove-contract", (req, res) => controller.remove_contract (req.body, result => res.send (result)));
-// For "add-mistake" operation.
-app.post ("/add-mistake", (req, res) => controller.add_mistake (req.body.data, result => res.send (result)));
-// For "mistakes-availables" operation.
-app.post ("/mistakes-availables", (req, res) => controller.load_mistakes (req.body, result => res.send (result)));
-// For sign up operation.
-app.post ("/sign-up", (req, res) => controller.sign_up (req.body.data, result => res.send (result)));
-// For sign in operation.
-app.post ("/sign-in", (req, res) => controller.sign_in (req.body.data, result => res.send (result)));
-// For mail sender operation.
-app.post ("/expired-contracts-data", (req, res) => controller.send_gmail (req.body, result => res.send (result)));
+// Root route.
+app.get ('/', (_, res) => (
+  res.sendFile (
+    "index.html", {
+      root: __dirname
+    }
+  )
+));
+// Available employees.
+app.get (
+  "/employees-availables",
+  (_, res) => (
+    api.load_availables_employees (
+      null, result => (
+        res.send (result)
+      )
+    )
+  )
+);
+// Running contracts.
+app.get (
+  "/running-contracts",
+  (_, res) => (
+    api.load_running_contracts (
+      null, result => (
+        res.send (result)
+      )
+    )
+  )
+);
+// Expired contracts.
+app.get (
+  "/expired-contracts",
+  (_, res) => (
+    api.load_expired_contracts (
+      null, result => (
+        res.send (result)
+      )
+    )
+  )
+);
+// Adds employee.
+app.post (
+  "/add-employee",
+  (req, res) => (
+    api.add_employee (
+      req.body.data,
+      result => (
+        res.send (result)
+      )
+    )
+  )
+);
+// Adds contract.
+app.post (
+  "/add-contract",
+  (req, res) => (
+    api.add_contract (
+      req.body.data,
+      result => (
+        res.send (result)
+      )
+    )
+  )
+);
+// Overrides contract.
+app.post (
+  "/override-contract",
+  (req, res) => (
+    api.override_contract (
+      req.body.data,
+      result => (
+        res.send (result)
+      )
+    )
+  )
+);
+// Removes contract.
+app.post (
+  "/remove-contract",
+  (req, res) => (
+    api.remove_contract (
+      req.body,
+      result => (
+        res.send (result)
+      )
+    )
+  )
+);
+// Adds mistake.
+app.post (
+  "/add-mistake",
+  (req, res) => (
+    api.add_mistake (
+      req.body.data,
+      result => (
+        res.send (result)
+      )
+    )
+  )
+);
+// Available faults.
+app.post (
+  "/mistakes-availables",
+  (req, res) => (
+    api.load_mistakes (
+      req.body,
+      result => (
+        res.send (result)
+      )
+    )
+  )
+);
+// Sign up.
+app.post (
+  "/sign-up",
+  (req, res) => (
+    api.sign_up (
+      req.body.data,
+      result => (
+        res.send (result)
+      )
+    )
+  )
+);
+// Sign in.
+app.post (
+  "/sign-in",
+  (req, res) => (
+    api.sign_in (
+      req.body.data,
+      result => (
+        res.send (result)
+      )
+    )
+  )
+);
+// Mail sender.
+app.post (
+  "/expired-contracts-data",
+  (req, res) => (
+    api.send_gmail (
+      req.body,
+      result => (
+        res.send (result)
+      )
+    )
+  )
+);
 
-// Server port configurations.
-app.listen (port, err => {if (err) console.error ("Failed to start server error code:", err); else console.log ("Server start at port:", port);});
+// Starts the server.
+app.listen (port, err => {
+	// Whether an error
+  // is thrown.
+	if (err) {
+		// Displays this
+    // error message.
+		console.error (
+			"Server Error: ", err
+		);
+	// Otherwise.
+	} else {
+		// Makes a warn
+    // about server
+    // starting.
+		console.log (
+			"Server started at port: ",
+			port
+		);
+	}
+});

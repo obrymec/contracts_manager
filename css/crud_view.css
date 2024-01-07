@@ -1,75 +1,98 @@
-/*Searcher icon*/
+/**
+* @project: Contracts Manager - https://contracts-manager.onrender.com/
+* @author: Obrymec - obrymecsprinces@gmail.com
+* @fileoverview: The crud view stylesheet.
+* @file: crud_view.css
+* @created: 2022-01-30
+* @updated: 2024-01-07
+* @supported: DESKTOP
+* @version: 0.0.2
+*/
+
+/* Colors theme */
+:root {
+	--white-300: rgb(235, 235, 235);
+	--primary-color: #075e54;
+	--silver: silver;
+	--gray: grey;
+}
+
+/* Searcher icon */
 div.shi > svg {
 	transform: translate(4.5px, 4.5px);
 }
 
-/*Crud view toolbar*/
+/* Adder icon container hover */
+div.ari:hover,
+div.shi:hover,
+div.rfi:hover {
+	border-color: var(--primary-color);
+}
+
+/* Crud view toolbar */
 div.crud-toolbar {
 	transform: translate3d(0, 0, 0);
 }
-/*Refresh icon*/
+
+/* Refresh icon */
 div.rfi > svg {
 	transform: translate(7px, 7px);
 }
 
-/*Searcher icon*/
+/* Searcher icon */
 div.searcher > svg {
 	transform: translateY(-1.5px);
 }
 
-/*Adder icon container hover*/
-div.ari:hover, div.shi:hover, div.rfi:hover {
-	border-color: #075E54;
+/* Adder icon hover */
+div.ari:hover > svg > g > line.cls-2,
+div.shi:hover > svg {
+	stroke: var(--primary-color);
 }
 
-/*Search field container hover*/
+/* Refresh icon hover */
+div.rfi:hover > svg {
+	fill: var(--primary-color);
+}
+
+/* Search field container hover */
 div.search-field:hover > div.field-clear > svg {
 	visibility: visible;
 }
 
-/*Adder icon hover*/
-div.ari:hover > svg > g > line.cls-2, div.shi:hover > svg {
-	stroke: #075E54;
-}
-
-/*Main option: add, search and refresh*/
+/* Main option: add, search and refresh */
 div.ar, div.sh, div.rf {
 	margin-top: -1px;
 }
 
-/*Refresh icon hover*/
-div.rfi:hover > svg {
-	fill: #075E54;
-}
-
-/*Adder icon*/
+/* Adder icon */
 div.ari > svg {
 	transform: translate(-2.5px, -2.5px);
 	cursor: pointer;
 }
 
-/*Search field container*/
+/* Search field container */
 div.search-field {
 	display: flex;
 	width: 100%;
 }
 
-/*Searcher icon*/
+/* Searcher icon */
 div.searcher {
 	position: absolute;
 	margin-left: 8px;
 	margin-top: 5px;
 }
 
-/*Search input field placeholder*/
+/* Search input field placeholder */
 div.search-field > input[type="text"]::placeholder {
 	transform: translateY(1px);
+	color: var(--silver);
 	font-style: italic;
 	user-select: none;
-	color: silver;
 }
 
-/*Crud view content*/
+/* Crud view content */
 div.crud-content {
 	scroll-behavior: smooth;
 	flex-direction: column;
@@ -78,7 +101,7 @@ div.crud-content {
 	height: 100%;
 }
 
-/*Main options*/
+/* Main options */
 div.main-options {
 	justify-content: flex-end;
 	display: inline-flex;
@@ -88,10 +111,10 @@ div.main-options {
 	gap: 10px;
 }
 
-/*Adder, move up and move down icons containers*/
+/* Adder, move up/down icons containers */
 div.ari, div.shi, div.rfi {
-	background-color: rgb(235, 235, 235);
-	border: 1px ridge silver;
+	background-color: var(--white-300);
+	border: 1px ridge var(--silver);
 	padding: 2px 6px 6px 2px;
 	border-radius: 40px;
 	cursor: pointer;
@@ -99,9 +122,9 @@ div.ari, div.shi, div.rfi {
 	width: 30px;
 }
 
-/*Search input field*/
+/* Search input field */
 div.search-field > input[type="text"] {
-	box-shadow: inset 0 2px 2.5px gray;
+	box-shadow: inset 0 2px 2.5px var(--gray);
 	padding: 15px 32px 15px 35px;
 	transition: color 0.4s;
 	font-family: verdana;
@@ -114,10 +137,10 @@ div.search-field > input[type="text"] {
 	width: 100%;
 }
 
-/*Crud view header*/
+/* Crud view header */
 div.crud-header {
-	box-shadow: 0 2px 3px grey;
-	background-color: #075E54;
+	background-color: var(--primary-color);
+	box-shadow: 0 2px 3px var(--gray);
 	transition: margin-top 0.3s;
 	padding: 8px 10px 8px 10px;
 	align-items: center;

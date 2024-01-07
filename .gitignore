@@ -1,5 +1,8 @@
-# Created by https://www.toptal.com/developers/gitignore/api/yarn,node
-# Edit at https://www.toptal.com/developers/gitignore?templates=yarn,node
+# Created by https://www.toptal.com/developers/gitignore/api/node,yarn,visualstudiocode,dotenv
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,yarn,visualstudiocode,dotenv
+
+### dotenv ###
+.env
 
 ### Node ###
 # Logs
@@ -77,7 +80,6 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env
 .env.development.local
 .env.test.local
 .env.production.local
@@ -141,6 +143,25 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
 ### yarn ###
 # https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
 
@@ -158,4 +179,4 @@ dist
 # and uncomment the following lines
 # .pnp.*
 
-# End of https://www.toptal.com/developers/gitignore/api/yarn,node
+# End of https://www.toptal.com/developers/gitignore/api/node,yarn,visualstudiocode,dotenv

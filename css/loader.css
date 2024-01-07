@@ -1,35 +1,52 @@
-/*Loader text container*/
+/**
+* @project: Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview: The generic loader stylesheet.
+* @author: Obrymec - obrymecsprinces@gmail.com
+* @created: 2022-01-30
+* @updated: 2024-01-07
+* @supported: DESKTOP
+* @file: loader.css
+* @version: 0.0.2
+*/
+
+/* Colors theme */
+:root {
+	--gray-300: rgb(150, 150, 150);
+	--black: #000;
+}
+
+/* Loader text container */
 div.loader-text {
 	transform: translateY(-1px);
 }
 
-/*It loader container*/
+/* Loader container */
 div.it-ld-ctr {
 	gap: 8px;
 }
 
-/*It loader and his container*/
+/* Loader and his container */
 div.it-loader, div.it-ld-ctr {
 	justify-content: center;
 	align-items: center;
 	display: flex;
 }
 
-/*Loader text*/
+/* Loader text */
 div.loader-text > label {
-	color: rgb(150, 150, 150);
+	color: var(--gray-300);
 	font-family: verdana;
 	font-style: italic;
 	font-size: 16px;
 	opacity: 0;
 }
 
-/*For loader circle*/
+/* For loader circle */
 circle.st0 {
-    stroke-linejoin: round;
-    stroke-miterlimit: 10;
-    stroke-linecap: round;
-    stroke-width: 2;
-    stroke: #000;
-    fill: none;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+	stroke-linecap: round;
+	stroke: var(--black);
+	stroke-width: 2;
+	fill: none;
 }
