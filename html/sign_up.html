@@ -1,35 +1,121 @@
 <body>
-    <div class = "fixed sign">
-        <!--Sign up form-->
-        <div class = "form">
-            <!--Sign up title-->
-            <div class = "title"><label>Inscription</label></div>
-            <!--Pseudo input field-->
-            <div class = "input-container ic1" title = "Donnez votre pseudo.">
-                <input class = "input pseudo" type = "text" name = "pseudo" placeholder = ' '/>
-                <div class = "cut pseudo-cut"></div><label for = "firstname" class = "placeholder">Pseudo</label>
-            </div>
-            <!--Email input field-->
-            <div class = "input-container ic2" title = "Saisissez votre vrai adresse couriel.">
-                <input class = "input email" type = "text" name = "email" placeholder = ' '/><div class = "cut email-cut"></div>
-                <label for = "email" class = "placeholder">Email</label>
-            </div>
-            <!--Password input field-->
-            <div class = "input-container ic2" title = "Quel mot de passe avez-vous choisi ?">
-                <input class = "input password" type = "password" name = "pass" placeholder = ' '/><div class = "cut password-cut"></div>
-                <label for = "password" class = "placeholder">Mot de passe</label>
-            </div>
-            <!--Confirm password input field-->
-            <div class = "input-container ic2" title = "Confirmer le mot de passe référé.">
-                <input class = "input confirm-password" type = "password" placeholder = ' '/><div class = "cut confirm-password-cut"></div>
-                <label for = "password" class = "placeholder">Confirmer mot de passe</label>
-            </div>
-            <!--Sign up button option-->
-            <br/><button type = "text" name = "compte" class = "submit sign-up" title = "S'inscrire.">Créer compte</button><br/><br/>
-            <!--Login button option-->
-            <button type = "text" class = "submit sign-up-login" title = "Se connecter.">Connexion</button>
-        </div>
-    </div>
-    <!--Controller-->
-    <script type = "text/javascript" src = "../js/sign_up.js"></script>
+	<!--Sign up section-->
+	<div class = "fixed sign">
+		<!--Sign up form-->
+		<div class = "form">
+			<!--Sign up title-->
+			<div class = "title">
+				<label>Sign up</label>
+			</div>
+			<!--Pseudo input field-->
+			<div
+				class = "input-container ic1"
+				title = "Type your pseudo."
+			>
+				<!--Input field-->
+				<input
+					class = "input pseudo"
+					placeholder = ' '
+					name = "pseudo"
+					type = "text"
+				/>
+				<!--Separator-->
+				<div
+					class = "cut pseudo-cut"
+				></div>
+				<!--Tag-->
+				<label
+					class = "placeholder"
+					for = "firstname"
+				>Pseudo</label>
+			</div>
+			<!--Email input field-->
+			<div
+				class = "input-container ic2"
+				title = "Type your email."
+			>
+				<!--Input field-->
+				<input
+					class = "input email"
+					placeholder = ' '
+					name = "email"
+					type = "text"
+				/>
+				<!--Separator-->
+				<div
+					class = "cut email-cut"
+				></div>
+				<!--Tag-->
+				<label
+					class = "placeholder"
+					for = "email"
+				>Email</label>
+			</div>
+			<!--Password input field-->
+			<div
+				title = "What password did you choose ?"
+				class = "input-container ic2"
+			>
+				<!--Input field-->
+				<input
+					class = "input password"
+					type = "password"
+					placeholder = ' '
+					name = "pass"
+				/>
+				<!--Separator-->
+				<div
+					class = "cut password-cut"
+				></div>
+				<!--Tag-->
+				<label
+					class = "placeholder"
+					for = "password"
+				>Password</label>
+			</div>
+			<!--Confirm password input field-->
+			<div
+				title = "Confirm the referred password."
+				class = "input-container ic2"
+			>
+				<!--Input field-->
+				<input
+					class = "input confirm-password"
+					type = "password"
+					placeholder = ' '
+				/>
+				<!--Separator-->
+				<div
+					class = "cut confirm-password-cut"
+				></div>
+				<!--Tag-->
+				<label
+					class = "placeholder"
+					for = "password"
+				>Confirm password</label>
+			</div>
+			<!--Spaces-->
+			<br/>
+			<!--Sign up button option-->
+			<button
+				class = "submit sign-up"
+				title = "Sign up."
+				name = "account"
+				type = "text"
+			>Sign up</button>
+			<!--Spaces-->
+			<br/><br/>
+			<!--Login button option-->
+			<button
+				class = "submit sign-up-login"
+				title = "Sign in."
+				type = "text"
+			>Connexion</button>
+		</div>
+	</div>
+	<!--Controller-->
+	<script
+		type = "text/javascript"
+		src = "../js/sign_up.js"
+	></script>
 </body>

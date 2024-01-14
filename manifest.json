@@ -1,0 +1,122 @@
+{
+  "description": "A simple web app to manage employees contracts.",
+  "short_name": "Contracts Manager",
+  "orientation": "portrait-primary",
+  "name": "Contracts Manager",
+  "background_color": "white",
+  "id": "contractsmanager",
+  "display": "standalone",
+  "theme_color": "white",
+  "start_url": ".",
+  "lang": "en",
+  "categories": [
+    "contracts management",
+    "employees contracts",
+    "contracts manager",
+    "graphics & design",
+    "development",
+    "graphics",
+    "design"
+  ],
+  "screenshots": [
+    {
+      "src": "./assets/render/render_4.png",
+      "type": "image/png",
+      "sizes": "1366x768"
+    },
+    {
+      "src": "./assets/render/render_2.png",
+      "type": "image/png",
+      "sizes": "1366x768"
+    },
+    {
+      "src": "./assets/render/render_1.png",
+      "form_factor": "wide",
+      "type": "image/png",
+      "sizes": "1366x768"
+    },
+    {
+      "src": "./assets/render/render_3.png",
+      "form_factor": "wide",
+      "type": "image/png",
+      "sizes": "1366x768"
+    }
+  ],
+  "icons": [
+    {
+      "src": "./assets/logos/logo-16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "./assets/logos/logo-24.png",
+      "type": "image/png",
+      "sizes": "24x24"
+    },
+    {
+      "src": "./assets/logos/logo-32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "./assets/logos/logo-43.png",
+      "type": "image/png",
+      "sizes": "43x43"
+    },
+    {
+      "src": "./assets/logos/logo-48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "./assets/logos/logo-64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "./assets/logos/logo-72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "./assets/logos/logo-85.png",
+      "type": "image/png",
+      "sizes": "85x85"
+    },
+    {
+      "src": "./assets/logos/logo-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "./assets/logos/logo-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "./assets/logos/logo-144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "./assets/logos/logo-172.png",
+      "type": "image/png",
+      "sizes": "172x172"
+    },
+    {
+      "src": "./assets/logos/logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./assets/logos/logo-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "./assets/logos/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

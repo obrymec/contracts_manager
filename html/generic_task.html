@@ -4,73 +4,155 @@
 		<!--Element id-->
 		<div class = "item-id form-container face-off">
 			<!--Input field-->
-			<div class = "element-id form-field field-disabled"><input type = "text" disabled = "true" placeholder = "ID"/></div>
+			<div
+				class = "element-id form-field field-disabled"
+			>
+				<input
+					placeholder = "ID"
+					disabled = "true"
+					type = "text"
+				/>
+			</div>
 		</div>
 		<!--Employee name-->
 		<div class = "employee-name form-container face-off">
 			<!--Employee name input field-->
-			<div class = "emp-name form-field"><input type = "text" placeholder = "Nom*" title = "Renseignez le nom de l'employé."/></div>
+			<div class = "emp-name form-field">
+				<input
+					title = "Enter the employee's name."
+					placeholder = "Name*"
+					type = "text"
+				/>
+			</div>
 			<!--Employee name field error-->
-			<div class = "mgs-error"><label></label></div>
+			<div class = "mgs-error">
+				<label></label>
+			</div>
 		</div>
 		<!--Employee surname(s)-->
 		<div class = "employee-surname form-container face-off">
 			<!--Employee surname(s) input field-->
-			<div class = "emp-surname form-field"><input type = "text" placeholder = "Prénom(s)*" title = "Renseignez le(s) prénom(s) de l'employé."/></div>
+			<div class = "emp-surname form-field">
+				<input
+					title = "Enter the employee's first name(s)."
+					placeholder = "Surname(s)*"
+					type = "text"
+				/>
+			</div>
 			<!--Employee surname(s) field error-->
-			<div class = "mgs-error"><label></label></div>
+			<div class = "mgs-error">
+				<label></label>
+			</div>
 		</div>
 		<!--Employee date-->
 		<div class = "employee-date form-container face-off">
 			<!--Employee date input field-->
-			<div class = "emp-date form-field"><input type = "date" placeholder = "Date*" title = "Renseignez la date de l'employé."/></div>
+			<div class = "emp-date form-field">
+				<input
+					title = "Enter the employee's date."
+					placeholder = "Date*"
+					type = "date"
+				/>
+			</div>
 			<!--Employee data error-->
-			<div class = "mgs-error"><label></label></div>
+			<div class = "mgs-error">
+				<label></label>
+			</div>
 		</div>
 		<!--Employee full name id-->
 		<div class = "full-name form-container face-off">
 			<!--Input field-->
-			<div class = "full-id form-field field-disabled"><input type = "text" placeholder = "Employé*" disabled = "true"/></div>
+			<div class = "full-id form-field field-disabled">
+				<input
+					placeholder = "Employee*"
+					disabled = "true"
+					type = "text"
+				/>
+			</div>
 		</div>
 		<!--Begining date-->
 		<div class = "begin-date form-container face-off">
 			<!--Starting date input field-->
-			<div class = "starting-date form-field"><input type = "date" placeholder = "Date d'embauche*" title = "Renseignez la date d'embauche."/></div>
+			<div class = "starting-date form-field">
+				<input
+					title = "Enter the date of hire."
+					placeholder = "Hiring date*"
+					type = "date"
+				/>
+			</div>
 			<!--Begining date error-->
-			<div class = "mgs-error"><label></label></div>
+			<div class = "mgs-error">
+				<label></label>
+			</div>
 		</div>
 		<!--Ending date-->
 		<div class = "end-date form-container face-off">
 			<!--End date input field-->
 			<div class = "ending-date form-field">
 				<!--Input field-->
-				<input type = "date" placeholder = "Date d'expiration*" title = "Renseignez la date d'expiration ou de fin."/>
+				<input
+					title = "Enter the expiration or end date."
+					placeholder = "Expiration date*"
+					type = "date"
+				/>
 			</div>
 			<!--Ending date error-->
-			<div class = "mgs-error"><label></label></div>
+			<div class = "mgs-error">
+				<label></label>
+			</div>
 		</div>
 		<!--Periode-->
 		<div class = "timer form-container face-off">
 			<!--Periode input field-->
 			<div class = "time form-field field-disabled">
 				<!--Input field-->
-				<input type = "text" placeholder = "Durée*" title = "Contient la durée du contrat (en mois)." value = '0 mois'/>
+				<input
+					title = "Contains the duration of the contract (in months)."
+					placeholder = "Duration*"
+					value = "0 month(s)"
+					type = "text"
+				/>
 			</div>
 			<!--Periode error-->
-			<div class = "mgs-error"><label></label></div>
+			<div class = "mgs-error">
+				<label></label>
+			</div>
 		</div>
 		<!--Mistakes selection-->
 		<div class = "mistakes form-container face-off">
 			<!--Mistake item selection-->
 			<div class = "serious form-field">
 				<!--Mistakes dropdown-->
-				<select title = "Quelle faute l'employé a t-il commit ?">
-					<option id = "Légère" value = "Légère" selected = "true">Légère</option><option id = "Grave" value = "Grave">Grave</option>
+				<select
+					title = "What fault did the employee commit ?"
+				>
+					<!--Light option-->
+					<option
+						selected = "true"
+						value = "Light"
+						id = "Light"
+					>Light</option>
+					<!--Severe option-->
+					<option
+						value = "Severe"
+						id = "Severe"
+					>Severe</option>
 				</select>
 				<!--Down arrow icon-->
 				<div class = "form-drop-arrow">
-					<svg width = "14px" height = "8px" viewBox = "0 0 14 8" fill = "none">
-					    <path d = "M1 1L7 7L13 1" stroke = "grey" strokeWidth = '2' strokeLinecap = "round" strokeLinejoin = "round"/>
+					<svg
+						viewBox = "0 0 14 8"
+						width = "14px"
+						height = "8px"
+						fill = "none"
+					>
+						<path
+							strokeLinejoin = "round"
+							strokeLinecap = "round"
+							d = "M1 1L7 7L13 1"
+							strokeWidth = '2'
+							stroke = "grey"
+						/>
 					</svg>
 				</div>
 			</div>
@@ -78,16 +160,31 @@
 		<!--Mistake date-->
 		<div class = "mistake-date form-container face-off">
 			<!--Mistake date input field-->
-			<div class = "mis-date form-field"><input type = "date" placeholder = "Date de la faute*" title = "Renseignez la date de la faute commise."/></div>
+			<div class = "mis-date form-field">
+				<input
+					title = "Enter the date of the offense committed."
+					placeholder = "Date of fault*"
+					type = "date"
+				/>
+			</div>
 			<!--Mistake date error-->
-			<div class = "mgs-error"><label></label></div>
+			<div class = "mgs-error">
+				<label></label>
+			</div>
 		</div>
 		<!--Mistake description-->
 		<div class = "serious-description form-container face-off">
 			<!--Mistake description input field-->
-			<div class = "mistake-report form-field"><textarea placeholder = "Description de la faute...*" title = "Décrivez la faute constatée."></textarea></div>
+			<div class = "mistake-report form-field">
+				<textarea
+					placeholder = "Description of the fault...*"
+					title = "Describe the fault observed."
+				></textarea>
+			</div>
 			<!--Mistake description error-->
-			<div class = "mgs-error"><label></label></div>
+			<div class = "mgs-error">
+				<label></label>
+			</div>
 		</div>
 	</div>
 </body>
