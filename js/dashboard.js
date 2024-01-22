@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview The main application dashboard.
+* @author Obrymec - obrymecsprinces@gmail.com
+* @created 2022-01-30
+* @updated 2024-01-21
+* @supported DESKTOP
+* @file dashboard.js
+* @version 0.0.2
+*/
+
 // Attributes.
 window.active_option = get_cookie ("cnt_dash_opt");
 window.active_option = ((typeof window.active_option === "string") ? window.active_option : "div.icons-employee");
@@ -21,7 +32,7 @@ function select_option (option_id, path, trash = [], force = false) {
 		// Checks the network.
 		if (window.SELECT && network_manager ()) {
 			// Loading graphics components and toggles class name of the given dashboard option.
-			destroy_props (trash); load_view (path, "div.views-manager", '', "Chargement..."); toggle_class (__ (option_id), true);
+			destroy_props (trash); load_view (path, "div.views-manager", '', "Loading..."); toggle_class (__ (option_id), true);
 			// Hides the last active option.
 			if (typeof window.active_option === "string" && !force) toggle_class (__ (window.active_option), false);
 			// Updates the active option value and the browser cookies manager.
@@ -61,9 +72,9 @@ function get_name_surnames (string) {
 // Redefined crud buttons title text.
 function sets_crud_btns_title (title, toolbar) {
 	// Changes add button title.
-	$ ($ (toolbar.get_add_button_id ()).children () [0]).attr ("title", ("Ajouter " + title));
+	$ ($ (toolbar.get_add_button_id ()).children () [0]).attr ("title", ("Add " + title));
 	// Changes search button title.
-	$ ($ (toolbar.get_search_button_id ()).children () [0]).attr ("title", ("Rechercher " + title));
+	$ ($ (toolbar.get_search_button_id ()).children () [0]).attr ("title", ("Search " + title));
 }
 
 // Manages generic task backend request with ajax protocol.
@@ -79,11 +90,11 @@ function draw_widget (path, data, ready = null, id = null) {
 	// Creating a new instance of a widget popup, sets widget radius and shows the generated widget popup.
 	let widget = new WidgetPopup ("div.other-views", data, id); widget.set_radius (5, 5, 5, 5); widget.is_closable (false);
 	// Shows the current widget, loads the passed web page and returns the created widget reference.
-	widget.visibility (true, () => widget.set_load_pid (load_view (path, widget.get_content_id (), '', "Chargement...", ready))); return widget;
+	widget.visibility (true, () => widget.set_load_pid (load_view (path, widget.get_content_id (), '', "Loading...", ready))); return widget;
 }
 
 // Apply common formulary instructions.
-function initialize_form (data, widget, ready = null, height = "auto") {
+function initialize_form (data, widget, ready = null) {
 	// Fixing all changing events on availables inputs.
 	data.forEach (item => {
 		// Fixing "focus" event for input field error destruction and getting the type of the passed input.
@@ -110,7 +121,7 @@ function logout () {
         destroy_props (["afd_emp_crud", "avb_emp_crud", "draw_employee", "emps_keys", "emps_tc", "emps_sec_idx",
         	"emps_wdm", "active_option", "run_cnt_crud", "exp_cnt_crud", "cnts_keys", "cnts_tc", "cnts_sec_idx"
         // Loads login page.
-        ]); set_cookie ("contracts_user", undefined, (20 / 60)); load_view ("../html/login.html", "div.views", '', "Chargement...");
+        ]); set_cookie ("contracts_user", undefined, (20 / 60)); load_view ("../html/login.html", "div.views", '', "Loading...");
     }
 }
 
@@ -121,8 +132,8 @@ function draw_basic_widget (path, height, title, widget_id, ready = null, reset 
 		zindex: 0, title: title, destroy: () => clear_widget_process (wdm, props_to_destroyed)
 	// Creates all usefull options for any operation.
 	}), () => initialize_form (reset, wdm, ready, height), widget_id); wdm.override_options ([
-		new Object ({text: "Valider", title: "Valider l'opération à éffectuée.", click: () => {if (typeof query === "function") query (wdm);}}),
-		new Object ({text: "Annuler", title: "Abandonner l'opération.", click: () => wdm.visibility (false)})
+		new Object ({text: "Validate", title: "Validate the operation carried out.", click: () => {if (typeof query === "function") query (wdm);}}),
+		new Object ({text: "Cancel", title: "Abort the operation.", click: () => wdm.visibility (false)})
 	// Returns the final generated widget popup.
 	]); return wdm;
 }
@@ -130,7 +141,7 @@ function draw_basic_widget (path, height, title, widget_id, ready = null, reset 
 // Overrides a dropdown option.
 function override_dropdown_options (drop_id, data, allow_none = true) {
 	// Removes all old options and appends "none" option.
-	$ (drop_id).html (''); if (allow_none) $ (drop_id).append ("<option id = 'Aucun' value = 'Aucun' name = ''>Aucun</option>");
+	$ (drop_id).html (''); if (allow_none) $ (drop_id).append ("<option id = 'Aucun' value = 'Aucun' name = ''>None</option>");
 	// Generating all given dropdown options.
 	data.forEach (item => {
 		// Contains an option state value.
@@ -149,7 +160,7 @@ function run_server_data (data, widget, slot = null) {
 	// Closes the widget that contains the operation.
 	else widget.visibility (false, () => {
 		// Displays the server message for this operation.
-		let server_message = new MessageBox ("div.other-views", new Object ({title: "Méssage serveur", zindex: 1, text: data.message,
+		let server_message = new MessageBox ("div.other-views", new Object ({title: "Server message", zindex: 1, text: data.message,
 			color: "green", options: [new Object ({text: "OK", title: "Ok.", click: () => {
 				// Destroys the message box and calls slot whether it exists.
 				server_message.visibility (false); if (typeof slot === "function") slot (data);
@@ -192,13 +203,13 @@ function date_difference () {
 		// Checks the dates order.
 		if (new Date (left_parts [2], left_parts [1], left_parts [0]) < new Date (right_parts [2], right_parts [1], right_parts [0])) {
 			// The both years are the same.
-			if (parts [0] [2] == parts [1] [2]) $ ("div.time > input").val ((parts [1] [1] - parts [0] [1]) + " mois");
+			if (parts [0] [2] == parts [1] [2]) $ ("div.time > input").val ((parts [1] [1] - parts [0] [1]) + " month(s)");
 			// Otherwise.
-			else $ ("div.time > input").val (((12 - parts [0] [1]) + parts [1] [1]) + " mois");
+			else $ ("div.time > input").val (((12 - parts [0] [1]) + parts [1] [1]) + " month(s)");
 		// Otherwise.
-		} else $ ("div.time > input").val ("0 mois");
+		} else $ ("div.time > input").val ("0 month(s)");
 	// Otherwise.
-	} else $ ("div.time > input").val ("0 mois");
+	} else $ ("div.time > input").val ("0 month(s)");
 }
 
 // Creates a generic operation task.
@@ -292,13 +303,13 @@ $ (() => {
 		// Contains all properties that will be destroyed.
 		let props_to_destroyed = ["avb_emp_crud", "afd_emp_crud", "draw_employee", "emps_keys", "emps_tc", "emps_sec_idx", "emps_wdm"];
 		// Selects contracts options.
-		$ ("div.big-title > label").text ("Contrat(s)"); select_option ("div.icons-contrat", "../html/contrat.html", props_to_destroyed);
+		$ ("div.big-title > label").text ("Contract(s)"); select_option ("div.icons-contrat", "../html/contrat.html", props_to_destroyed);
     // Fixing "click" event on "employee(s)" option.
 	}); $ ("div.icons-employee").click (() => {
 		// Contains all properties that will be destroyed.
 		let props_to_destroyed = ["run_cnt_crud", "exp_cnt_crud", "cnts_keys", "cnts_tc", "cnts_sec_idx"];
 		// Selects employees options.
-		$ ("div.big-title > label").text ("Employé(s)"); select_option ("div.icons-employee", "../html/employee.html", props_to_destroyed);
+		$ ("div.big-title > label").text ("Employee(s)"); select_option ("div.icons-employee", "../html/employee.html", props_to_destroyed);
     // Fixing "click" event on "logout" option.
 	}); $ ("div.icons-logout").click (() => logout ());
     // Loads the default dashboard option.

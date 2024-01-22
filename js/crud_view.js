@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview The crud view component to display data.
+* @author Obrymec - obrymecsprinces@gmail.com
+* @created 2022-01-30
+* @updated 2024-01-21
+* @supported DESKTOP
+* @file crud_view.js
+* @version 0.0.2
+*/
+
 // Crud view class definition.
 function CrudView (parent, keys = [], id = null) {
 	// Attributes.

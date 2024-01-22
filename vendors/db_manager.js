@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview Manages the remote mongo cloud database.
+* @author Obrymec - obrymecsprinces@gmail.com
+* @created 2022-01-30
+* @updated 2024-01-21
+* @file db_manager.js
+* @supported DESKTOP
+* @version 0.0.2
+*/
+
 ///////////////////////////////////////////////////////////[Attributes and dependences]/////////////////////////////////////////////////////
 const {MongoClient, ObjectID, ServerApiVersion} = require ("mongodb");
 let link = null, client = null;

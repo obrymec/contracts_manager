@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview Loads and displays all running contract(s).
+* @author Obrymec - obrymecsprinces@gmail.com
+* @created 2022-01-30
+* @updated 2024-01-21
+* @supported DESKTOP
+* @file contracts.js
+* @version 0.0.2
+*/
+
 // Attributes.
 window.run_cnt_crud = new CrudView ("div.running-contracts", window.cnts_keys, "run-cnt");
 
@@ -8,7 +19,7 @@ $ (() => {
 	// Fixing "click" event on refresh button.
 	$ (window.run_cnt_crud.get_refresh_button_id ()).click (() => {if (network_manager ()) load_running_contracts ();});
 	// Overrides the current crud buttons title.
-	sets_crud_btns_title ("un contrat.", window.run_cnt_crud); make_request ("/running-contracts", "GET", new Object ({}), server => {
+	sets_crud_btns_title ("a contract.", window.run_cnt_crud); make_request ("/running-contracts", "GET", new Object ({}), server => {
 		// Loading running contracts.
 		if (Array.isArray (server.data) && server.data.length) server.data.forEach ((element, index) => {
 			// Filtering all parts of the loaded contracts start and end dates.

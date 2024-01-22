@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview Manages fetched contract(s) from server.
+* @author Obrymec - obrymecsprinces@gmail.com
+* @created 2022-01-30
+* @updated 2024-01-21
+* @supported DESKTOP
+* @file contracts.js
+* @version 0.0.2
+*/
+
 // Attributes.
 window.cnts_keys = ["Employé", "Date d'embauche", "Date d'expiration", "Durée", "ID"];
 window.cnts_tc = new TabControl ("div.contracts-manager", "cnts-tabctrl");
@@ -7,7 +18,7 @@ window.cnts_sec_idx = parseInt (!is_empty (window.cnts_sec_idx) ? window.cnts_se
 // Loads running contracts crud web page view.
 function load_running_contracts () {
 	// Loads running contracts web page.
-	load_view ("../html/running_contracts.html", window.cnts_tc.get_tab_content_id (), '', "Chargement...");
+	load_view ("../html/running_contracts.html", window.cnts_tc.get_tab_content_id (), '', "Loading...");
 	// Hides the mailer icon.
 	$ ("div.mailer").css ("display", "none");
 	// Updates browser cookies.
@@ -19,7 +30,7 @@ function load_running_contracts () {
 // Loads expired contracts crud web page view.
 function load_expired_contracts () {
 	// Loads expired contracts web page.
-	load_view ("../html/expired_contracts.html", window.cnts_tc.get_tab_content_id (), '', "Chargement...");
+	load_view ("../html/expired_contracts.html", window.cnts_tc.get_tab_content_id (), '', "Loading...");
 	// Hides the mailer icon.
 	$ ("div.mailer").css ("display", "inline-block");
 	// Updates browser cookies.
@@ -63,7 +74,7 @@ function draw_contract (item, toolbar, index, length) {
 		);
 		// For running contracts.
 		if (window.cnts_tc.get_active_section () === 0) ctcard.override_options ([
-			new Object ({text: "Arrêter", title: "Arrêter ce contract.", click: () => {
+			new Object ({text: "Stop", title: "Stop this contract.", click: () => {
 					// Lauches an ajax request.
 					make_request ("/remove-contract", "POST", new Object ({id: item.ID, employee: item ["Employé"]}), server => {
 						// No errors found.
@@ -85,9 +96,9 @@ function draw_contract (item, toolbar, index, length) {
 			})
 		// For expired contracts.
 		]); else if (window.cnts_tc.get_active_section () === 1) ctcard.override_options ([
-			new Object ({text: "Renouveler", title: "Renouveler ce contract.", click: () => {
+			new Object ({text: "Renew", title: "Renew this contract.", click: () => {
 				// Overrides a contract.
-				generic_task ("override-contract", "Renouvellement d'un contrat", null, null, ctcard, toolbar);
+				generic_task ("override-contract", "Renewal of a contract", null, null, ctcard, toolbar);
 			}})
 		]);
 		// Shows the card.
@@ -105,8 +116,8 @@ $ (() => {
 	$ ("div.big-title > label").text ("Contrat(s)");
 	// Fixing tabcontrol sections behavior.
 	window.cnts_tc.override_sections ([
-		new Object ({text: "En cours", title: "Consulter les contrats en cours.", click: load_running_contracts}),
-		new Object ({text: "Terminé(s)", title: "Consulter les contrats arrivés à terme.", click: load_expired_contracts})
+		new Object ({text: "In pending", title: "View current contracts.", click: load_running_contracts}),
+		new Object ({text: "Finished", title: "View expired contracts.", click: load_expired_contracts})
 	], window.cnts_sec_idx);
 	// Removes scripts.
 	$ ("script").remove ();

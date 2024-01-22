@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview Loads and displays all faults of an employees.
+* @author Obrymec - obrymecsprinces@gmail.com
+* @created 2022-01-30
+* @updated 2024-01-21
+* @supported DESKTOP
+* @file mistakes.js
+* @version 0.0.2
+*/
+
 // Attributes.
 window.msk_crud = new CrudView ("div.mistakes", ["Date", "Description", "Type", "ID"], "msk-slt");
 
@@ -47,7 +58,7 @@ function load_mistakes () {
 // Called when this web page is fulled loaded.
 $ (() => {
 	// Removes crud add button and overrides the current crud buttons title.
-	$ (window.msk_crud.get_add_button_id ()).remove (); sets_crud_btns_title ("une faute.", window.msk_crud);
+	$ (window.msk_crud.get_add_button_id ()).remove (); sets_crud_btns_title ("a fault.", window.msk_crud);
 	// Fixing "click" event on crud refresh button.
 	$ (window.msk_crud.get_refresh_button_id ()).click (() => {if (network_manager ()) load_mistakes ();});
 	// Loads all availables mistakes from the database and removes this script.

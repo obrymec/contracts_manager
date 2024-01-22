@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview A generic front-end tools for common uses cases.
+* @author Obrymec - obrymecsprinces@gmail.com
+* @file basics_tools.js
+* @created 2022-01-30
+* @updated 2024-01-21
+* @supported DESKTOP
+* @version 0.0.2
+*/
+
 // Animates label text infos content.
 function animate_text (parent, text, interval, delay = 0, dir = 1, invert = false, finished = null) {
    // The given text is not empty.
@@ -191,12 +202,12 @@ function parse_date (day = 0, month = 0, year = 0) {
 		let date = [String (parseInt (day)), '', String (parseInt (year))];
 		// For the passed month .
 		switch (parseInt (month)) {
-			case 1: date [1] = "Janvier"; break; case 2: date [1] = "Février"; break;
-			case 3: date [1] = "Mars"; break; case 4: date [1] = "Avril"; break;
-			case 5: date [1] = "Mai"; break; case 6: date [1] = "Juin"; break;
-			case 7: date [1] = "Juillet"; break; case 8: date [1] = "Août"; break;
-			case 9: date [1] = "Septembre"; break; case 10: date [1] = "Octobre"; break;
-			case 11: date [1] = "Novembre"; break; case 12: date [1] = "Décembre"; break;
+			case 1: date [1] = "January"; break; case 2: date [1] = "February"; break;
+			case 3: date [1] = "March"; break; case 4: date [1] = "April"; break;
+			case 5: date [1] = "May"; break; case 6: date [1] = "June"; break;
+			case 7: date [1] = "July"; break; case 8: date [1] = "August"; break;
+			case 9: date [1] = "September"; break; case 10: date [1] = "October"; break;
+			case 11: date [1] = "November"; break; case 12: date [1] = "December"; break;
 			default: date [1] = "------"; break;
 		// Returns the final result.
 		} return (((date [0].length >= 2) ? date [0] : ('0' + date [0])) + ' ' + date [1] + ' ' + date [2]);

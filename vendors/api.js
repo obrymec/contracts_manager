@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview Manages all app requests sent from the client.
+* @author Obrymec - obrymecsprinces@gmail.com
+* @created 2022-01-30
+* @updated 2024-01-21
+* @supported DESKTOP
+* @version 0.0.2
+* @file api.js
+*/
+
 // Dependencies.
 const password_validator = require ("password-validator");
 const email_validator = require ("email-validator");
@@ -13,23 +24,23 @@ function _check_number_input (inp, ans) {
 	// Converts the input into an integer.
 	inp.value = parseInt (inp.value);
 	// The input field value is it empty ?
-	if (String (inp.value).length === 3) ans.errors.push (new Object ({id: inp.id, message: "Aucune valeur n'a pas été renseignée."}));
+	if (String (inp.value).length === 3) ans.errors.push (new Object ({id: inp.id, message: "No value has been entered."}));
 	// Checks the value type.
-	else if (isNaN (inp.value)) ans.errors.push (new Object ({id: inp.id, message: "La valeur n'est pas de type numérique."}));
+	else if (isNaN (inp.value)) ans.errors.push (new Object ({id: inp.id, message: "The value is not of numeric type."}));
 	// Checks the limit of the given value.
-	else if (inp.value > 999999999999) ans.errors.push (new Object ({id: inp.id, message: "La valeur est hors des limites prédéfinies."}));
+	else if (inp.value > 999999999999) ans.errors.push (new Object ({id: inp.id, message: "The value is outside the predefined limits."}));
 }
 
 // Checks whether a date input field respects the imposed restrictions.
 function _check_date_input (inp, ans) {
 	// Checks whether the date is empty.
-	if (!inp.value.length) ans.errors.push (new Object ({id: inp.id, message: "La valeur de ce champ n'a pas été renseignée."}));
+	if (!inp.value.length) ans.errors.push (new Object ({id: inp.id, message: "The value of this field has not been entered."}));
 	// Checks the date character count.
-	else if (inp.value.length !== 10) ans.errors.push (new Object ({id: inp.id, message: "La date renseignée n'est pas valide."}));
+	else if (inp.value.length !== 10) ans.errors.push (new Object ({id: inp.id, message: "The date entered is not valid."}));
 	// Checks the date separator.
 	else if (!inp.value.includes ('/') && !inp.value.includes ('-') && !inp.value.includes ('\\')) {
 		// Generates an error message.
-		ans.errors.push (new Object ({id: inp.id, message: "La date ne respecte pas les conventions standard."}));
+		ans.errors.push (new Object ({id: inp.id, message: "The date does not follow standard conventions."}));
 	// Checks the date sections.
 	} else {
 		// Getting the date parts.
@@ -37,7 +48,7 @@ function _check_date_input (inp, ans) {
 		// Checks date parts value type.
 		if (typeof parts [0] !== "number" && typeof parts [1] !== "number" && typeof parts [2] !== "number") {
 			// Generates an error message.
-			ans.errors.push (new Object ({id: inp.id, message: "Le format de la date renseignée est incorrecte."}));
+			ans.errors.push (new Object ({id: inp.id, message: "The format of the date entered is incorrect."}));
 		}
 	}
 }
@@ -63,11 +74,11 @@ function _parse_date (date) {
 // Checks whether an email input field respects the imposed restrictions.
 function _check_email_input (inp, ans) {
 	// The given email is empty.
-	if (!inp.value.length) ans.errors.push (new Object ({id: inp.id, message: "Ce champ n'a pas été renseigné."}));
+	if (!inp.value.length) ans.errors.push (new Object ({id: inp.id, message: "This field has not been filled in."}));
 	// A character named '@' has been found.
 	if (inp.value.includes ('@')) {
 		// The passed email doesn't respect standard conventions.
-		if (!email_validator.validate (inp.value)) ans.errors.push (new Object ({id: inp.id, message: "Le courrier électronique n'est pas valide."}));
+		if (!email_validator.validate (inp.value)) ans.errors.push (new Object ({id: inp.id, message: "The email is invalid."}));
 	// Otherwise.
 	} else _check_name_input (inp, ans);
 }
@@ -77,24 +88,11 @@ function _check_phone_input (inp, ans) {
 	// Converts the input into an integer.
 	inp.value = parseInt (inp.value);
 	// The input field value is it empty ?
-	if (!String (inp.value).length) ans.errors.push (new Object ({id: inp.id, message: "Le numéro de téléphone n'a pas été renseigné."}));
+	if (!String (inp.value).length) ans.errors.push (new Object ({id: inp.id, message: "The telephone number has not been provided."}));
 	// Checks the limit of the given value.
-	else if (String (inp.value).length !== 8) ans.errors.push (new Object ({id: inp.id, message: "Le numéro de téléphone donné est invalide."}));
+	else if (String (inp.value).length !== 8) ans.errors.push (new Object ({id: inp.id, message: "The telephone number given is invalid."}));
 	// Checks the value type.
-	else if (isNaN (inp.value)) ans.errors.push (new Object ({id: inp.id, message: "Ce champ n'est pas de type numérique."}));
-}
-
-// Returns the original date
-function _get_original_date (date) {
-	// Divides the date into many parts.
-	let parts = date.split (' '); switch (parts [1]) {
-		case "Janvier": parts [1] = "01"; break; case "Février": parts [1] = "02"; break; case "Mars": parts [1] = "03"; break;
-		case "Avril": parts [1] = "04"; break; case "Mai": parts [1] = "05"; break; case "Juin": parts [1] = "06"; break;
-		case "Juillet": parts [1] = "07"; break; case "Août": parts [1] = "08"; break; case "Septembre": parts [1] = "09"; break;
-		case "Octobre": parts [1] = "10"; break; case "Novembre": parts [1] = "11"; break; case "Décembre": parts [1] = "12"; break;
-		default: parts [1] = "00"; break;
-	// Returns the final.
-	} return (parts [2] + '-' + parts [1] + '-' + parts [0]).replace ("undefined-00-", '');
+	else if (isNaN (inp.value)) ans.errors.push (new Object ({id: inp.id, message: "This field is not of numeric type."}));
 }
 
 // Checks whether a password input field respects the imposed restrictions.
@@ -102,12 +100,12 @@ function _check_password_input (inp, ans) {
 	// Creates a password schema.
 	let schema = new password_validator ();
 	// Specifies password requirement.
-	schema.has ().is ().max (16, "Le mot de passe doit comporté au maximum (16) caractères.")
-		.is ().min (8, "Le mot de passe doit comporté au moins (08) caractères.").not ().spaces (1, "Les espaces ne sont pas tolérées.");
+	schema.has ().is ().max (16, "The password must contain a maximum of (16) characters.")
+		.is ().min (8, "The password must contain at least (08) characters.").not ().spaces (1, "Spaces are not tolerated.");
 	// Checks password restrictions.
 	let results = schema.validate (inp.value, new Object ({details: true}));
 	// The input field value is it empty ?
-	if (!inp.value.length) ans.errors.push (new Object ({id: inp.id, message: "Le mot de passe n'a pas été renseigné."}));
+	if (!inp.value.length) ans.errors.push (new Object ({id: inp.id, message: "The password has not been entered."}));
 	// Checks a certains constraints.
 	else if (Array.isArray (results) && results.length) ans.errors.push (new Object ({id: inp.id, message: results [0].message}));
 }
@@ -117,7 +115,7 @@ function _check_name_input (inp, ans) {
 	// Creates a password schema.
 	let schema = new password_validator ();
 	// Specifies password requirement.
-	schema.not ().symbols (1, "On ne doit pas constaté la présence d'au moins l'un des symbols: !, #, $, &, +, *, -, %, etc...");
+	schema.not ().symbols (1, "The presence of at least one of the symbols must not be noted: !, #, $, &, +, *, -, %, etc...");
 	// Checks password restrictions.
 	let results = schema.validate (inp.value, new Object ({details: true}));
 	// Checks a certains constraints.
@@ -126,7 +124,7 @@ function _check_name_input (inp, ans) {
 
 // Establishes a connection to mongo database.
 function _connect_to_db (success, result) {dbmanager.check_connection (db => success (db), () => result (new Object ({
-	errors: "L'application rencontre des difficultées à se connecter à la base de données."})
+	errors: "The application is having difficulty connecting to the database."})
 ));}
 
 // Returns the name and the surname(s).
@@ -151,7 +149,7 @@ function _generic_checker (data) {
 			// Is it a required field ?
 			if (input.required) {
 				// No value specified.
-				if (!input.value.length) answer.errors.push (new Object ({id: input.id, message: "Aucune valeur renseignée."}));
+				if (!input.value.length) answer.errors.push (new Object ({id: input.id, message: "No value entered."}));
 				// Otherwise.
 				else if (input.restrictions) _check_name_input (input, answer);
 			// A value has been specified.
@@ -201,16 +199,16 @@ module.exports.override_contract = function override_contract (data, result) {
 						let modifiers = new Object ({"Date d'embauche": data [1].value, "Date d'expiration": data [2].value, "Durée": data [3].value});
 						// Updates the database.
 						dbmanager.update ("it_manager", "contracts", modifiers, new Object ({_id: data [0].value}), false,
-						response => result (new Object ({errors: false,
-							message: ("Le renouvellement d'un contrat de l'employé <strong>" + contract ["Employé"] + "</strong> a été éffectué avec succès.")
+						() => result (new Object ({errors: false,
+							message: ("Renewal of an employee contract <strong>" + contract ["Employé"] + "</strong> was carried out successfully.")
 						})));
 					// Otherwise.
-					} else result (new Object ({errors: [new Object ({id: data [1].id, message: ("La date de début du contrat à renouvellé" +
-						" ne peut pas être inférieure à celle d'expiration de l'ancien contrat.")})]}));
+					} else result (new Object ({errors: [new Object ({id: data [1].id, message: ("The start date of the contract to be renewed" +
+						" cannot be lower than the expiry date of the old contract.")})]}));
 				});
 			// Otherwise.
-			} else result (new Object ({errors: [new Object ({id: data [2].id, message: ("La date de fin ne peut pas être" +
-				" inférieure ou égale à celle d'embauche de l'employé.")})]}));
+			} else result (new Object ({errors: [new Object ({id: data [2].id, message: ("The end date cannot be" +
+				" less than or equal to the employee's hiring date.")})]}));
 		// Otherwise.
 		} else result (answer);
 	}, result);
@@ -233,15 +231,15 @@ module.exports.add_employee = function add_employee (data, result) {
 					dbmanager.insert ("it_manager", "employees", new Object ({
 						Nom: data [0].value, "Prénom(s)": data [1].value, "Date d'enregistrement": data [2].value, Fautes: []
 					}), states => result (new Object ({
-						message: ("L'employé <strong>" + states.data ["Prénom(s)"] + ' ' + states.data.Nom.toUpperCase () + "</strong>"
-						+ " a été correctement enregistré sur le système."), errors: false, data: new Object ({
+						message: ("The employee <strong>" + states.data ["Prénom(s)"] + ' ' + states.data.Nom.toUpperCase () + "</strong>"
+						+ " has been successfully registered on the system."), errors: false, data: new Object ({
 							ID: states.data._id, Nom: states.data.Nom, "Prénom(s)": states.data ["Prénom(s)"],
 							"Date d'enregistrement": states.data ["Date d'enregistrement"], disabled: ["ID"]
 						})
 					})));
 				// Otherwise.
-				} else result (new Object ({errors: ("L'employé <strong>" + data [1].value + ' ' + data [0].value + "</strong>"
-					+ " a déjà été enregistré sur le système.")
+				} else result (new Object ({errors: ("The employee <strong>" + data [1].value + ' ' + data [0].value + "</strong>"
+					+ " has already been registered on the system.")
 				}));
 			});
 		// Otherwise.
@@ -280,19 +278,19 @@ module.exports.add_contract = function add_contract (data, result) {
 								dbmanager.insert ("it_manager", "contracts", new Object ({"Employé": data [0].value, "Date d'embauche": data [1].value,
 									"Date d'expiration": data [2].value, "Durée": data [3].value
 								}), states => result (new Object ({
-									message: ("Un contrat de durée <strong>" + states.data ["Durée"] + "</strong> a été établit sur l'employé " + 
+									message: ("A long-term contract <strong>" + states.data ["Durée"] + "</strong> was established on the employee " + 
 									"<strong>" + states.data ["Employé"] + "</strong>."), errors: false
 								})));
 							// Otherwise.
-							} else result (new Object ({errors: ("Un contrat est déjà en cours sur l'employé <strong>" + data [0].value + "</strong>.")}));
+							} else result (new Object ({errors: ("A contract is already in progress on the employee <strong>" + data [0].value + "</strong>.")}));
 						}, true);
 					// Otherwise.
-					} else result (new Object ({errors: [new Object ({id: data [1].id, message: ("La date d'embauche ne doit pas être" +
-						" inférieure à celle d'enregistrement de l'employé.")})]}));
+					} else result (new Object ({errors: [new Object ({id: data [1].id, message: ("The date of employment must not be" +
+						" lower than that of the employee's registration.")})]}));
 				});
 			// Otherwise.
-			} else result (new Object ({errors: [new Object ({id: data [2].id, message: ("La date de fin ne peut pas être" +
-				" inférieure ou égale à celle d'embauche de l'employé.")})]}));
+			} else result (new Object ({errors: [new Object ({id: data [2].id, message: ("The end date cannot be" +
+				" less than or equal to the employee's hiring date.")})]}));
 		// Otherwise.
 		} else result (answer);
 	}, result);
@@ -324,14 +322,14 @@ module.exports.add_mistake = function add_mistake (data, result) {
 							let mistakes = employee.Fautes; mistakes.push (new Object ({Type: data [1].value, Date: data [2].value, Motif: data [3].value}));
 							// Updates the database.
 							dbmanager.update ("it_manager", "employees", new Object ({Fautes: mistakes}), new Object ({_id: employee._id}), false,
-							response => result (new Object ({errors: false,
-								message: ("Une faute a été signalé sur l'employé <strong>" + employee ["Prénom(s)"] + ' ' + employee.Nom.toUpperCase () + "</strong>.")
+							() => result (new Object ({errors: false,
+								message: ("A misconduct has been reported on the employee <strong>" + employee ["Prénom(s)"] + ' ' + employee.Nom.toUpperCase () + "</strong>.")
 							})));
 						}
 					});
 				// Otherwise.
-				} else result (new Object ({errors: [new Object ({id: data [2].id, message: ("La date de signalement ne doit pas" +
-					" être hors des limites plafonds.")})]}));
+				} else result (new Object ({errors: [new Object ({id: data [2].id, message: ("The reporting date should not" +
+					" be outside the ceiling limits.")})]}));
 			});
 		// Otherwise.
 		} else result (answer);
@@ -407,7 +405,7 @@ module.exports.remove_contract = function remove_contract (data, result) {
 	_connect_to_db (() => {
 		// Gets out the target contract.
 		dbmanager.delete ("it_manager", "contracts", new Object ({_id: data.id}), false, () => result (new Object ({
-			errors: false, message: ("Le contrat établit sur l'employé <strong>" + data.employee + "</strong> a bel et bien été arrêté.")
+			errors: false, message: ("The contract establishes on the employee <strong>" + data.employee + "</strong> was indeed arrested.")
 		})));
 	}, result);
 }
@@ -440,9 +438,9 @@ module.exports.sign_up = function sign_up (data, result) {
 				// Contains data that will be inserted into database.
 				let administrator_data = new Object ({pseudo: data [0].value, login: data [1].value, password: data [2].value});
 				// Inserts the given formulary data into the database.
-				dbmanager.insert ("it_manager", "administrators", administrator_data, states => result (new Object ({errors: false})));
+				dbmanager.insert ("it_manager", "administrators", administrator_data, () => result (new Object ({errors: false})));
 			// Otherwise.
-			} else result (new Object ({errors: [new Object ({message: "Le mot de passe n'a pas été confirmer."})]}))
+			} else result (new Object ({errors: [new Object ({message: "The password has not been confirmed."})]}))
 		// Otherwise.
 		} else result (answer);
 	}, result);
@@ -460,7 +458,7 @@ module.exports.sign_in = function sign_in (data, result) {
 			// The passed administrator is defined.
 			if (res != null) result (new Object ({errors: false, user_id: (res.pseudo + ':' + res.login)}));
 			// Otherwise.
-			else result (new Object ({errors: [new Object ({message: "Votre identifiant ou mot de passe n'est pas valide."})]}));
+			else result (new Object ({errors: [new Object ({message: "Your username or password is invalid."})]}));
 		});
 	}, result);
 }
@@ -470,14 +468,14 @@ module.exports.send_gmail = function send_gmail (data, result) {
 	// Creates a transporter for Gmail sending and checks whether application is correctly connected to the passed transporter.
 	mailer.create_transporter (mailer.Services.GMAIL, data.address, ''); mailer.check_transporter (() => {
 		// Sends the current data to the target user google account.
-		mailer.send_mail (new Object ({from: data.source, to: data.address, subject: "Liste des contrats terminés.", html: data.html,
-			success: () => result (new Object ({message: ("Les contrats terminés ont bel et bien été envoyés par <strong><i>Gmail</i></strong>" +
-				" sur le compte se trouvant à l'adresse <strong><i>" + data.address + "</i></strong>.")
-			})), failed: () => result (new Object ({errors: ("Impossible d'envoyer les informations par <strong><i>Gmail</i></strong>" +
-				" sur le compte se trouvant à l'adresse <strong><i>" + data.address + "</i></strong>. Veuillez vérifier les identifiants.")
+		mailer.send_mail (new Object ({from: data.source, to: data.address, subject: "List of completed contracts.", html: data.html,
+			success: () => result (new Object ({message: ("The completed contracts have indeed been sent by <strong><i>Gmail</i></strong>" +
+				" on the account located at the address <strong><i>" + data.address + "</i></strong>.")
+			})), failed: () => result (new Object ({errors: ("Unable to send information by <strong><i>Gmail</i></strong>" +
+				" on the account located at the address <strong><i>" + data.address + "</i></strong>. Please check the credentials.")
 			}))
 		}));
-	}, () => result (new Object ({errors: ("L'application a des difficultées à envoyé les informations par <strong><i>Gmail</i></strong>" +
-		" sur le compte se trouvant à l'adresse <strong><i>" + data.address + "</i></strong>.")
+	}, () => result (new Object ({errors: ("The app has difficulty sending information by <strong><i>Gmail</i></strong>" +
+		" on the account located at the address <strong><i>" + data.address + "</i></strong>.")
 	})));
 }

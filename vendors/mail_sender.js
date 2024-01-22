@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview Manages mail sending from an address to another.
+* @author Obrymec - obrymecsprinces@gmail.com
+* @file mail_sender.js
+* @created 2022-01-30
+* @updated 2024-01-21
+* @supported DESKTOP
+* @version 0.0.2
+*/
+
 ///////////////////////////////////////////////////////////[Attributes and dependences]/////////////////////////////////////////////////////
 // Loads nodemailer module from node modules.
 const nodemailer = require ("nodemailer");

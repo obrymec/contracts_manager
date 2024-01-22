@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview Loads employee(s) with no contract.
+* @author Obrymec - obrymecsprinces@gmail.com
+* @file available_employees.js
+* @created 2022-01-30
+* @updated 2024-01-21
+* @supported DESKTOP
+* @version 0.0.2
+*/
+
 // Attributes.
 window.avb_emp_crud = new CrudView ("div.availables-employees", window.emps_keys, "avb-emp");
 
@@ -9,11 +20,11 @@ $ (() => {
 		if (network_manager ()) load_availables_employees ();
 	});
 	// Fixing "click" event on crud add button.
-	$ (window.avb_emp_crud.get_add_button_id ()).click (() => generic_task ("add-employee", "Inscription d'un employé"));
+	$ (window.avb_emp_crud.get_add_button_id ()).click (() => generic_task ("add-employee", "Sign up an employee"));
 	// Destroys the preview variable.
 	destroy_props (["afd_emp_crud"]);
 	// Sets buttons title.
-	sets_crud_btns_title ("un employé.", window.avb_emp_crud);
+	sets_crud_btns_title ("an employee.", window.avb_emp_crud);
 	// Loads logged employees.
 	make_request ("/employees-availables", "GET", new Object ({}), server => {
 		// Loading availables employees.

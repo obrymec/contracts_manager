@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview Manages free sign up employee(s).
+* @author Obrymec - obrymecsprinces@gmail.com
+* @created 2022-01-30
+* @updated 2024-01-21
+* @supported DESKTOP
+* @file employees.js
+* @version 0.0.2
+*/
+
 // Attributes.
 window.emps_keys = ["Prénom(s)", "Nom", "Durée", "Date d'enregistrement", "Date d'embauche", "Date d'expiration", "ID"];
 window.emps_tc = new TabControl ("div.employees-manager", "emps-tabctrl");
@@ -11,13 +22,13 @@ function sup_popup (path, props_to_destroyed) {
 	if (network_manager ()) {
 		// Creates a widget to contains all loaded mistakes from the database.
 		window.emps_wdm = draw_widget (path, new Object ({width: 680, height: 480, max_width: 1024,
-			max_height: 600, zindex: 0, title: "Consultation des fautes", destroy: () => {
+			max_height: 600, zindex: 0, title: "Consultation of faults", destroy: () => {
 				// Clears all background tasks.
 				destroy_props (props_to_destroyed); window.clearTimeout (window.emps_wdm.get_load_pid ());
 			}
 		}), null, "msk-avb");
 		// Fixing a back button.
-		window.emps_wdm.override_options ([new Object ({text: "Retour", title: "Retour.", click: () => window.emps_wdm.visibility (false)})]);
+		window.emps_wdm.override_options ([new Object ({text: "Back", title: "Comeback.", click: () => window.emps_wdm.visibility (false)})]);
 	}
 }
 
@@ -46,28 +57,28 @@ function draw_employee (item, toolbar, index, length) {
 			}
 		// For availables employees.
 		); if (window.emps_tc.get_active_section () === 0) empcard.override_options ([
-			new Object ({text: "Fautes", title: "Consulter les fautes commises par ce employé.", click: () => {
+			new Object ({text: "Faults", title: "View the mistakes made by this employee.", click: () => {
 				// Draws a widget to display any mistake association.
 				window.empcard = empcard; sup_popup ("../html/mistakes.html", ["msk_crud"]);
-			}}), new Object ({text: "Etablir contrat", title: "Mettre un contrat sur ce employé.", click: () => {
+			}}), new Object ({text: "Establish contract", title: "Put a contract on this employee.", click: () => {
 				// Establishes a contract.
-				generic_task ("add-contract", "Etablissement d'un contrat", null, null, empcard);
+				generic_task ("add-contract", "Establishment of a contract", null, null, empcard);
 			}}),
 		// For affected employees.
 		]); else if (window.emps_tc.get_active_section () === 1) empcard.override_options ([
-			new Object ({text: "Fautes", title: "Consulter les fautes commises par ce employé.", click: () => {
+			new Object ({text: "Faults", title: "View the mistakes made by this employee.", click: () => {
 				// Draws a widget to display any mistake association.
 				window.empcard = empcard; sup_popup ("../html/mistakes.html", ["msk_crud"]);
-			}}), new Object ({text: "Signaler faute", title: "Signaler une faute sur ce employé.", click: () => {
+			}}), new Object ({text: "Report fault", title: "Report misconduct on this employee.", click: () => {
 				// Creating a new employee mistake.
-				generic_task ("add-mistake", "Signalement de faute", null, null, empcard);
-			}}), new Object ({text: "Arrêter", title: "Arrêter le contrat établit sur ce employé.", click: () => {
+				generic_task ("add-mistake", "Reporting of misconduct", null, null, empcard);
+			}}), new Object ({text: "Stop", title: "Stop the contract established on this employee.", click: () => {
 				// Lauches an ajax request.
 				make_request ("/remove-contract", "POST", new Object ({id: item.ID, employee: item ["Employé"]}), server => {
 					// No errors found.
 					if (!server.errors) {
 						// Displays a message.
-						let msg = new MessageBox ("div.other-views", new Object ({title: "Méssage serveur", zindex: 1, color: "green",
+						let msg = new MessageBox ("div.other-views", new Object ({title: "Server message", zindex: 1, color: "green",
 							text: server.message, options: [new Object ({text: "OK", title: "Ok.", click: () => msg.visibility (false, () => {
 								// Destroys the associated data card.
 								destroy_data_card (empcard, toolbar);
@@ -89,7 +100,7 @@ function draw_employee (item, toolbar, index, length) {
 // Loads availables employees crud web page view.
 function load_availables_employees () {
 	// Loads availables employees web page.
-	load_view ("../html/availables_employees.html", window.emps_tc.get_tab_content_id (), '', "Chargement...");
+	load_view ("../html/availables_employees.html", window.emps_tc.get_tab_content_id (), '', "Loading...");
 	// Updates browser cookies.
 	set_cookie ("emps_tab_sec", 0, 365); window.emps_sec_idx = 0;
 }
@@ -97,7 +108,7 @@ function load_availables_employees () {
 // Loads affected employees crud web page view.
 function load_affected_employees () {
 	// Loads affected employees web page.
-	load_view ("../html/affected_employees.html", window.emps_tc.get_tab_content_id (), '', "Chargement...");
+	load_view ("../html/affected_employees.html", window.emps_tc.get_tab_content_id (), '', "Loading...");
 	// Updates browser cookies.
 	set_cookie ("emps_tab_sec", 1, 365); window.emps_sec_idx = 1;
 }
@@ -105,10 +116,10 @@ function load_affected_employees () {
 // Called when this web page is fulled loaded.
 $ (() => {
    	// Hides the mailer icon.
-	$ ("div.mailer").css ("display", "none"); $ ("div.big-title > label").text ("Employé(s)"); window.draw_employee = draw_employee;
+	$ ("div.mailer").css ("display", "none"); $ ("div.big-title > label").text ("Employee(s)"); window.draw_employee = draw_employee;
 	// Fixing tabcontrol sections behavior.
 	window.emps_tc.override_sections ([
-		new Object ({text: "Disponible(s)", title: "Consulter les employés disponibles.", click: () => load_availables_employees ()}),
-		new Object ({text: "Sous contrat", title: "Consulter les employés sous contrat.", click: () => load_affected_employees ()})
+		new Object ({text: "Available", title: "View available employees.", click: () => load_availables_employees ()}),
+		new Object ({text: "Under contract", title: "Consult with contracted employees.", click: () => load_affected_employees ()})
 	], window.emps_sec_idx); $ ("script").remove ();
 });

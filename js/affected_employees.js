@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview Loads employee(s) under contract.
+* @author Obrymec - obrymecsprinces@gmail.com
+* @file affected_employees.js
+* @created 2022-01-30
+* @updated 2024-01-21
+* @supported DESKTOP
+* @version 0.0.2
+*/
+
 // Attributes.
 window.afd_emp_crud = new CrudView ("div.affected-employees", window.emps_keys, "afd-emp");
 
@@ -9,11 +20,11 @@ $ (() => {
 		if (network_manager ()) load_affected_employees ();
 	});
 	// Fixing "click" event on crud add button.
-	$ (window.afd_emp_crud.get_add_button_id ()).click (() => generic_task ("add-employee", "Inscription d'un employé"));
+	$ (window.afd_emp_crud.get_add_button_id ()).click (() => generic_task ("add-employee", "Sign up an employee"));
 	// Destroys the preview variable.
 	destroy_props (["avb_emp_crud"]);
 	// Sets crud buttons title.
-	sets_crud_btns_title ("un employé.", window.afd_emp_crud);
+	sets_crud_btns_title ("an employee.", window.afd_emp_crud);
 	// Loads affected employees.
 	make_request ("/running-contracts", "GET", new Object ({}), server => {
 		// Loading availables affected employees.

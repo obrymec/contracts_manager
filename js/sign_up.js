@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview Defines the way to sign up a user.
+* @author Obrymec - obrymecsprinces@gmail.com
+* @created 2022-01-30
+* @updated 2024-01-21
+* @supported DESKTOP
+* @file sign_up.js
+* @version 0.0.2
+*/
+
 // A user sign up manager.
 function sign_up () {
 	// Checks the network.
@@ -11,13 +22,13 @@ function sign_up () {
 		// Checking the given data.
 		]; make_request ("/sign-up", "POST", new Object ({data: form_data}), server => {
 			// For empty fields.
-			if (Array.isArray (server.errors) && server.errors [0].message === "Ce champ n'a pas été renseigné.") {
+			if (Array.isArray (server.errors) && server.errors [0].message === "This field has not been filled in.") {
 				// Changes the server message.
-				server.errors [0].message = "Des champs n'ont pas été renseignés. Veuillez les remplir afin de poursuivre l'opération.";
+				server.errors [0].message = "Some fields have not been filled in. Please complete them in order to continue the operation.";
 			// The server data contains some errors.
 			} if (Array.isArray (server.errors)) sign_message_box (server.errors [0].message);
 			// Otherwise.
-			else load_view ("../html/login.html", "div.views", '', "Chargement...");
+			else load_view ("../html/login.html", "div.views", '', "Loading...");
 		// Disables any potentials actions.
 		}, null, 180000, 0, true);
 	}
@@ -26,7 +37,7 @@ function sign_up () {
 // When this page is loaded.
 $ (() => {
    // Loads the sign up page.
-   $ ("button.sign-up-login").click (() => load_view ("../html/login.html", "div.views", '', "Chargement..."));
+   $ ("button.sign-up-login").click (() => load_view ("../html/login.html", "div.views", '', "Loading..."));
    // Removes this script.
    $ ("button.sign-up").click (() => sign_up ()); $ ("script").remove ();
 });

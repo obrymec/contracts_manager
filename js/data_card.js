@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview The card component to display contract data.
+* @author Obrymec - obrymecsprinces@gmail.com
+* @created 2022-01-30
+* @updated 2024-01-21
+* @supported DESKTOP
+* @file data_card.js
+* @version 0.0.2
+*/
+
 // Creating data card class.
 function DataCard (parent, data = new Object ({}), id = null) {
 	// Attributes.

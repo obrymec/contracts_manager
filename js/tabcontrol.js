@@ -1,3 +1,14 @@
+/**
+* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @fileoverview The tabcontrol component to group main options.
+* @author Obrymec - obrymecsprinces@gmail.com
+* @created 2022-01-30
+* @updated 2024-01-21
+* @supported DESKTOP
+* @file contracts.js
+* @version 0.0.2
+*/
+
 // Creating tab control widget class.
 function TabControl (parent, id = null) {
 	// Attributes.
