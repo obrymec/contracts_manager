@@ -4,19 +4,10 @@
 * @fileoverview: The message box stylesheet.
 * @file: message_box.css
 * @created: 2022-01-30
-* @updated: 2024-01-07
+* @updated: 2024-01-28
 * @supported: DESKTOP
 * @version: 0.0.2
 */
-
-/* Colors theme */
-:root {
-	--slight-black: rgba(0, 0, 0, 0.8);
-	--primary-color: #075e54;
-	--silver: silver;
-	--black: #000;
-	--white: #fff;
-}
 
 /* Global container */
 div.msg-container {
@@ -40,7 +31,6 @@ div.message-box {
 /* Text content */
 div.text-content {
 	font-family: verdana;
-	text-align: justify;
 	margin-top: -3px;
 	font-size: 15px;
 	width: 100%;
@@ -53,7 +43,7 @@ div.msg-content {
 	justify-content: center;
 	align-items: center;
 	display: flex;
-	width: 370px;
+	width: 320px;
 	gap: 10px;
 }
 

@@ -4,7 +4,7 @@
 * @author Obrymec - obrymecsprinces@gmail.com
 * @file expired_contracts.js
 * @created 2022-01-30
-* @updated 2024-01-21
+* @updated 2024-01-28
 * @supported DESKTOP
 * @version 0.0.2
 */
@@ -108,15 +108,15 @@ $ (() => {
 		// Loading expired contracts.
 		if (Array.isArray (server.data) && server.data.length) server.data.forEach ((element, index) => {
 			// Filtering all parts of the loaded contracts start and end dates.
-			let sdate = element ["Date d'embauche"].split ('-'), edate = element ["Date d'expiration"].split ('-');
+			let sdate = element ["Hiring date"].split ('-'), edate = element ["Expiration date"].split ('-');
 			// Draws all running contracts.
-			draw_contract (new Object ({ID: element._id, "Employé": element ["Employé"],
-				"Date d'embauche": parse_date (parseInt (sdate [2]), parseInt (sdate [1]), parseInt (sdate [0])),
-				"Date d'expiration": parse_date (parseInt (edate [2]), parseInt (edate [1]), parseInt (edate [0])),
-				"Durée": element ["Durée"], disabled: ["ID"]
+			draw_contract (new Object ({ID: element._id, "Employee": element ["Employee"],
+				"Hiring date": parse_date (parseInt (sdate [2]), parseInt (sdate [1]), parseInt (sdate [0])),
+				"Expiration date": parse_date (parseInt (edate [2]), parseInt (edate [1]), parseInt (edate [0])),
+				"Duration": element ["Duration"], disabled: ["ID"]
 			}), window.exp_cnt_crud, index, server.data.length);
 		// Listens crud data.
-		}); listen_crud_data (window.exp_cnt_crud); send_data_to_app_account_with_emailjs ();
+		}); listen_crud_data (window.exp_cnt_crud);
 	// Removes this script.
-	}); $ ("div.mailer > svg").click (() => send_data_to_app_account_with_emailjs ()); $ ("script").remove ();
+	}); $ ("script").remove ();
 });

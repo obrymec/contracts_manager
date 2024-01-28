@@ -4,7 +4,7 @@
 * @author Obrymec - obrymecsprinces@gmail.com
 * @file available_employees.js
 * @created 2022-01-30
-* @updated 2024-01-21
+* @updated 2024-01-28
 * @supported DESKTOP
 * @version 0.0.2
 */
@@ -30,11 +30,11 @@ $ (() => {
 		// Loading availables employees.
 		if (Array.isArray (server.data) && server.data.length > 0) server.data.forEach ((element, index) => {
 			// Filtering all parts of the loaded employee date.
-			const date = element ["Date d'enregistrement"].split ('-');
+			const date = element ["Register date"].split ('-');
 			// Draws all logged employees.
 			draw_employee (new Object ({
-				"Date d'enregistrement": parse_date (parseInt (date [2]), parseInt (date [1]), parseInt (date [0])), disabled: ["ID"],
-				ID: element._id, Nom: element.Nom.toUpperCase (), "Prénom(s)": str_capitalize (element ["Prénom(s)"])
+				"Register date": parse_date (parseInt (date [2]), parseInt (date [1]), parseInt (date [0])), disabled: ["ID"],
+				ID: element._id, Name: element.Name.toUpperCase (), "Surname(s)": str_capitalize (element ["Surname(s)"])
 			}), window.avb_emp_crud, index, server.data.length);
 		});
 		// Listens crud data.

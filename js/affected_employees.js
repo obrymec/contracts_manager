@@ -4,7 +4,7 @@
 * @author Obrymec - obrymecsprinces@gmail.com
 * @file affected_employees.js
 * @created 2022-01-30
-* @updated 2024-01-21
+* @updated 2024-01-28
 * @supported DESKTOP
 * @version 0.0.2
 */
@@ -30,13 +30,13 @@ $ (() => {
 		// Loading availables affected employees.
 		if (Array.isArray (server.data) && server.data.length > 0) server.data.forEach ((element, index) => {
 			// Filtering all parts of the loaded contracts start and end dates.
-			const sdate = element ["Date d'embauche"].split ('-'), edate = element ["Date d'expiration"].split ('-');
+			const sdate = element ["Hiring date"].split ('-'), edate = element ["Expiration date"].split ('-');
 			// Draws all affected employees.
 			draw_employee (new Object ({
-				"Date d'expiration": parse_date (parseInt (edate [2]), parseInt (edate [1]), parseInt (edate [0])),
-				"Date d'embauche": parse_date (parseInt (sdate [2]), parseInt (sdate [1]), parseInt (sdate [0])),
-				ID: element._id, "Employé": element ["Employé"],
-				"Durée": element ["Durée"], disabled: ["ID"]
+				"Expiration date": parse_date (parseInt (edate [2]), parseInt (edate [1]), parseInt (edate [0])),
+				"Hiring date": parse_date (parseInt (sdate [2]), parseInt (sdate [1]), parseInt (sdate [0])),
+				ID: element._id, "Employee": element ["Employee"],
+				"Duration": element ["Duration"], disabled: ["ID"]
 			}), window.afd_emp_crud, index, server.data.length);
 		});
 		// Listens crud data.

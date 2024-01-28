@@ -3,40 +3,31 @@
 * @author: Obrymec - obrymecsprinces@gmail.com
 * @fileoverview: The sign in/up stylesheet.
 * @created: 2022-01-30
-* @updated: 2024-01-07
+* @updated: 2024-01-28
 * @supported: DESKTOP
 * @file: sign.css
 * @version: 0.0.2
 */
 
-/* Colors theme */
-:root {
-  --slight-blue: rgba(5, 116, 186, 0.823);
-	--darkblue-100: #15172b;
-	--darkblue-200: #303245;
-	--error-color: #dc2f55;
-	--pure-blue-100: #06b;
-	--pure-blue-200: #08b;
-	--gray-400: #808097;
-	--gray-500: #65657b;
-	--gray-600: #eee;
-	--black: #000;
-}
-
 /* Virtual placeholder */
 input.input:not(:placeholder-shown) ~ label.placeholder,
 input.input:focus ~ label.placeholder {
-	transform: translateY(-30px) translateX(10px) scale(0.75);
+	transform: translateY(-29px) translateX(10px) scale(0.75);
 }
 
 /* Submit button active slot */
 button.submit:active {
-	background-color: var(--pure-blue-100);
+	background-color: var(--primary-color-200);
 }
 
 /* Button hover */
 button.submit:hover {
-	background-color: var(--pure-blue-100);
+	background-color: var(--primary-color-200);
+}
+
+/* Placeholder */
+input.input:not(:placeholder-shown) ~ label.placeholder {
+	color: var(--primary-color-400);
 }
 
 /* Virtual placeholder */
@@ -48,11 +39,6 @@ input.input:focus ~ div.cut {
 /* Placeholder focus */
 input.input:focus ~ label.placeholder {
 	color: var(--error-color);
-}
-
-/* Placeholder */
-input.input:not(:placeholder-shown) ~ label.placeholder {
-	color: var(--gray-400);
 }
 
 /* Email field container */
@@ -75,24 +61,24 @@ button.sign-up-login {
 	margin-top: 10px;
 }
 
-/* Password cut */
-div.password-cut {
-	width: 105px;
-}
-
 /* Confirm password cut */
 div.confirm-password-cut {
-	width: 172px;
+	width: 136px;
 }
 
-/* Email cut */
-div.email-cut {
-	width: 55px;
+/* Password cut */
+div.password-cut {
+	width: 82px;
 }
 
 /* Pseudo cut */
 div.pseudo-cut {
 	width: 66px;
+}
+
+/* Email cut */
+div.email-cut {
+	width: 55px;
 }
 
 /* Input container */
@@ -104,7 +90,7 @@ div.input-container {
 
 /* Sign page container */
 div.sign {
-	background-color: var(--black);
+	background-color: var(--white);
 	justify-content: center;
 	align-items: center;
 	display: flex;
@@ -113,36 +99,15 @@ div.sign {
 
 /* Title text container */
 div.title {
+	color: var(--primary-color-100);
 	font-family: sans-serif;
-	color: var(--gray-600);
 	font-weight: 600;
-	margin-top: 25px;
 	font-size: 36px;
-}
-
-/* Sign up form container */
-div.form {
-	background-color: var(--darkblue-100);
-	box-sizing: border-box;
-	border-radius: 20px;
-	height: 610px;
-	padding: 20px;
-	width: 320px;
-}
-
-/* Login form container */
-div.login {
-	background-color: var(--darkblue-100);
-	box-sizing: border-box;
-	border-radius: 20px;
-	height: 500px;
-	padding: 20px;
-	width: 320px;
 }
 
 /* Cutter */
 div.cut {
-	background-color: var(--darkblue-100);
+	background-color: var(--white);
 	transition: transform 200ms;
 	transform: translateY(0);
 	border-radius: 10px;
@@ -155,9 +120,9 @@ div.cut {
 /* Virtual placeholder label */
 label.placeholder {
 	transition: transform 200ms, color 200ms;
+	color: var(--primary-color-400);
 	font-family: sans-serif;
 	transform-origin: 0 50%;
-	color: var(--gray-500);
 	pointer-events: none;
 	position: absolute;
 	line-height: 14px;
@@ -167,23 +132,23 @@ label.placeholder {
 
 /* Any input */
 input.input {
-	background-color: var(--darkblue-200);
+	border: 1px solid var(--primary-color-400);
+	background-color: var(--white);
+	color: var(--primary-color);
 	box-sizing: border-box;
-	color: var(--gray-600);
 	border-radius: 12px;
 	padding: 4px 20px 0;
 	font-size: 18px;
 	height: 100%;
 	width: 100%;
 	outline: 0;
-	border: 0;
 }
 
 /* Submit button */
 button.submit {
-	background-color: var(--pure-blue-200);
+	background-color: var(--primary-color);
 	box-sizing: border-box;
-	color: var(--gray-600);
+	color: var(--white);
 	border-radius: 12px;
 	text-align: center;
 	cursor: pointer;

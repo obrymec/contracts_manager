@@ -3,7 +3,7 @@
 * @fileoverview The crud view component to display data.
 * @author Obrymec - obrymecsprinces@gmail.com
 * @created 2022-01-30
-* @updated 2024-01-21
+* @updated 2024-01-28
 * @supported DESKTOP
 * @file crud_view.js
 * @version 0.0.2
@@ -36,12 +36,12 @@ function CrudView (parent, keys = [], id = null) {
 					<svg fill = 'none' height = '20px' stroke = 'grey' stroke-width = '2' viewBox = '0 0 24 24' width = '20px'>\
 						<circle cx = '10.5' cy = '10.5' r = '7.5'/><line x1 = '21' x2 = '15.8' y1 = '21' y2 = '15.8'/>\
 					</svg></div><div class = 'search-field' id = 'shr-fd-" + id + "'>\
-						<input type = 'text' placeholder = 'Rechercher' title = \"Rechercher un élément donné.\"/></div>\
+						<input type = 'text' placeholder = 'Search' title = \"Search for a given item.\"/></div>\
 				</div><div class = 'crud-content' id = 'cu-cnt-" + id + "'></div>\
 				<div class = 'crud-toolbar' id = 'cu-tb-" + id + "'>\
 					<div class = 'main-options'>\
 						<div class = 'rf' id = 'tb-rf-" + id + "'>\
-							<div class = 'rfi' id = 'tb-rfi-" + id + "' title = \"Rafraîchir la section.\">\
+							<div class = 'rfi' id = 'tb-rfi-" + id + "' title = \"Refresh section.\">\
 								<svg viewBox = '0 0 512 512' width = '20px' height = '20px' fill = 'grey'>\
 									<path d = 'M496 48V192c0 17.69-14.31 32-32 32H320c-17.69 0-32-14.31-32-32s14.31-32 \
 									32-32h63.39c-29.97-39.7-77.25-63.78-127.6-63.78C167.7 96.22 96 167.9 96 256s71.69 \
@@ -53,14 +53,14 @@ function CrudView (parent, keys = [], id = null) {
 							</div>\
 						</div>\
 						<div class = 'sh' id = 'tb-sh-" + id + "'>\
-							<div class = 'shi' id = 'tb-shi-" + id + "' title = \"Rechercher un élément.\">\
+							<div class = 'shi' id = 'tb-shi-" + id + "' title = \"Search for an item.\">\
 								<svg fill = 'none' height = '25px' width = '25px' stroke = 'grey' stroke-width = '2' viewBox = '0 0 24 24'>\
 									<circle cx = '10.5' cy = '10.5' r = '7.5'/><line x1 = '21' x2 = '15.8' y1 = '21' y2 = '15.8'/>\
 								</svg>\
 							</div>\
 						</div>\
 						<div class = 'ar' id = 'tb-ar-" + id + "'>\
-							<div class = 'ari' id = 'tb-ari-" + id + "' title = \"Ajouter un élément.\">\
+							<div class = 'ari' id = 'tb-ari-" + id + "' title = \"Add an item.\">\
 								<svg viewBox = '0 0 32 32' width = '40px' height = '40px'>\
 									<defs><style>line.cls-2{fill: none; stroke: grey; stroke-width: 2px;}</style></defs>\
 									<g><line class = 'cls-2' x1 = '16' x2 = '16' y1 = '7' y2 = '25'/>\

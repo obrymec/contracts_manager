@@ -3,7 +3,7 @@
 * @fileoverview The base behaviours for app's features.
 * @author Obrymec - obrymecsprinces@gmail.com
 * @created 2022-01-30
-* @updated 2024-01-21
+* @updated 2024-01-28
 * @supported DESKTOP
 * @file index.js
 * @version 0.0.2
@@ -38,32 +38,36 @@ function network_manager () {
 
 // Manages page loading.
 function load_view (path, parent_id, message = null, infobull = null, finished = null, limit = 180000, delay = 0.0) {
-	// Checks the passed path.
-	if (str_check (path) != null) {
-		// Corrects the passed path and id.
-		window.SELECT = false; path = String (path).replace (' ', ''); let load_page_error = null;
-		// Draws the loader.
-		draw_loader (new Object ({title: infobull, parent: parent_id, label: message}), true);
-		// Starts loading page time counter.
-		let load_pid = window.setTimeout (() => {
-			// Shows a message box about a slow loading.
-			load_page_error = new MessageBox ("div.other-views", new Object ({title: "Loading error", zindex: 1,
-				text: "The page load timeout has expired. Please try again.", color: "red",
-				options: [new Object ({text: "Reload", title: "Do you want to restart the loading of the target page again ?",
-				click: () => {load_page_error.visibility (false); load_view (path, parent_id, message, infobull, finished, limit);}}),
-				new Object ({text: "Cancel", title: "Abort loading.", click: () => load_page_error.visibility (false)})]
-			// Shows the message box.
-			}), false, "ld-pg-err"); load_page_error.visibility (true);
-		// Loads the given web page.
-		}, Number (limit)); window.setTimeout (() => {$ (parent_id).load (path, () => {
-			// Destroys the message box, kills the loading process id and enables "disconnect" option on guest icon.
-			if (load_page_error != null) load_page_error.visibility (false); window.clearTimeout (load_pid); window.SELECT = true;
-			// Calls the passed callback.
-			if (typeof finished === "function") finished ();
-		// Returns the load process id.
-		});}, delay); return load_pid;
-	// Error message.
-	} else console.error ("Invalid path !"); return null;
+	// Checks network state.
+	if (network_manager ()) {
+		// Checks the passed path.
+		if (str_check (path) != null) {
+			// Corrects the passed path and id.
+			window.SELECT = false; path = String (path).replace (' ', ''); let load_page_error = null;
+			// Draws the loader.
+			draw_loader (new Object ({title: infobull, parent: parent_id, label: message}), true);
+			// Starts loading page time counter.
+			let load_pid = window.setTimeout (() => {
+				// Shows a message box about a slow loading.
+				load_page_error = new MessageBox ("div.other-views", new Object ({title: "Loading error", zindex: 1,
+					text: "The page load timeout has expired. Please try again.", color: "red",
+					options: [new Object ({text: "Reload", title: "Do you want to restart the loading of the target page again ?",
+					click: () => {load_page_error.visibility (false); load_view (path, parent_id, message, infobull, finished, limit);}}),
+					new Object ({text: "Cancel", title: "Abort loading.", click: () => load_page_error.visibility (false)})]
+				// Shows the message box.
+				}), false, "ld-pg-err"); load_page_error.visibility (true);
+			// Loads the given web page.
+			}, Number (limit)); window.setTimeout (() => {$ (parent_id).load (path, () => {
+				// Destroys the message box, kills the loading process id and enables "disconnect" option on guest icon.
+				if (load_page_error != null) load_page_error.visibility (false); window.clearTimeout (load_pid); window.SELECT = true;
+				// Calls the passed callback.
+				if (typeof finished === "function") finished ();
+			// Returns the load process id.
+			});}, delay); return load_pid;
+		// Error message.
+		} else console.error ("Invalid path !");
+	}
+	return null;
 }
 
 // Makes a http request from the frontend to backend.
@@ -173,7 +177,7 @@ $ (() => {
 		// Fixing "offline" event on the browser window.
 		$ (window).on ("offline", () => {
 			// Destroys the previously shown message box and shows a message box about a slow loading.
-			let network_error = new MessageBox ("div.other-views", new Object ({title: "Network message",
+			let network_error = new MessageBox ("div.other-views", new Object ({title: "Network message", color: "red",
 				text: "The browser has just been taken offline. Please check your wifi or Ethernet cable and try again.",
 				options: [new Object ({text: "OK", title: "OK.", click: () => network_error.visibility (false)})], zindex: 1
 			// Shows the message box.

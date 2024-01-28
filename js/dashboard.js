@@ -3,7 +3,7 @@
 * @fileoverview The main application dashboard.
 * @author Obrymec - obrymecsprinces@gmail.com
 * @created 2022-01-30
-* @updated 2024-01-21
+* @updated 2024-01-28
 * @supported DESKTOP
 * @file dashboard.js
 * @version 0.0.2
@@ -203,13 +203,13 @@ function date_difference () {
 		// Checks the dates order.
 		if (new Date (left_parts [2], left_parts [1], left_parts [0]) < new Date (right_parts [2], right_parts [1], right_parts [0])) {
 			// The both years are the same.
-			if (parts [0] [2] == parts [1] [2]) $ ("div.time > input").val ((parts [1] [1] - parts [0] [1]) + " month(s)");
+			if (parts [0] [2] == parts [1] [2]) $ ("div.time > input").val ((parts [1] [1] - parts [0] [1]) + " months");
 			// Otherwise.
-			else $ ("div.time > input").val (((12 - parts [0] [1]) + parts [1] [1]) + " month(s)");
+			else $ ("div.time > input").val (((12 - parts [0] [1]) + parts [1] [1]) + " months");
 		// Otherwise.
-		} else $ ("div.time > input").val ("0 month(s)");
+		} else $ ("div.time > input").val ("0 months");
 	// Otherwise.
-	} else $ ("div.time > input").val ("0 month(s)");
+	} else $ ("div.time > input").val ("0 months");
 }
 
 // Creates a generic operation task.
@@ -225,7 +225,7 @@ function generic_task (type, title, ready = null, drop_init = null, card_ref = n
 				// Shows all required fields.
 				$ ("div.mistakes, div.serious-description, div.mistake-date").removeClass ("face-off");
 				// Gets the target element mongo employee full name.
-				$ ("div.element-id > input").val (card_ref.get_data () ["Employé"]);
+				$ ("div.element-id > input").val (card_ref.get_data () ["Employee"]);
 			// For contract adding or overriding.
 			} else if (type === "add-contract" || type === "override-contract") {
 				// Shows contract fields.
@@ -235,7 +235,7 @@ function generic_task (type, title, ready = null, drop_init = null, card_ref = n
 			// For contract adding only.
 			} if (type === "add-contract") {
 				// Getting the employee name and surname.
-				let employee_id = [str_capitalize (card_ref.get_data () ["Prénom(s)"]), card_ref.get_data ().Nom.toUpperCase ()];
+				let employee_id = [str_capitalize (card_ref.get_data () ["Surname(s)"]), card_ref.get_data ().Name.toUpperCase ()];
 				// Updates employee full id.
 				$ ("div.full-id > input").val (employee_id [0] + ' ' + employee_id [1]);
 			// For contract overriding only.
@@ -243,7 +243,7 @@ function generic_task (type, title, ready = null, drop_init = null, card_ref = n
 				// Gets the target element mongo object id.
 				$ ("div.element-id > input").val (card_ref.get_id ().replace ("div#cd-", '').split ('-') [0]);
 				// Updates full id input tag to employee full name.
-				$ ("div.full-id > input").val (card_ref.get_data () ["Employé"]);
+				$ ("div.full-id > input").val (card_ref.get_data () ["Employee"]);
 			// Sets the widget height to "auto" and warns all listeners about formulary ready.
 			} widget.set_height ("auto"); if (typeof ready === "function") ready (widget);
 		// Formulary fields data.
@@ -260,13 +260,13 @@ function generic_task (type, title, ready = null, drop_init = null, card_ref = n
 					// Checks variables existance.
 					if (window.hasOwnProperty ("emps_sec_idx") && window.active_option === "div.icons-employee" && window.emps_sec_idx === 0) {
 						// Removes all pre-loaded br tags from the employees data displayer.
-						$ (window.avb_emp_crud.get_content_id () + " br").remove (); let date = server.data ["Date d'enregistrement"].split ('-');
+						$ (window.avb_emp_crud.get_content_id () + " br").remove (); let date = server.data ["Register date"].split ('-');
 						// Gets availables employees total count.
-						let count = window.avb_emp_crud.get_data ().length; server.data.Nom = server.data.Nom.toUpperCase ();
+						let count = window.avb_emp_crud.get_data ().length; server.data.Name = server.data.Name.toUpperCase ();
 						// Corrects the passed surname value.
-						server.data ["Prénom(s)"] = str_capitalize (server.data ["Prénom(s)"]);
+						server.data ["Surname(s)"] = str_capitalize (server.data ["Surname(s)"]);
 						// Corrects the current employee logging date.
-						server.data ["Date d'enregistrement"] = parse_date (parseInt (date [2]), parseInt (date [1]), parseInt (date [0]));
+						server.data ["Register date"] = parse_date (parseInt (date [2]), parseInt (date [1]), parseInt (date [0]));
 						// Adds the associated data card to this section and updates the associated crud of the current services manager.
 						window.draw_employee (server.data, window.avb_emp_crud, count, (count + 1)); listen_crud_data (window.avb_emp_crud);
 					}

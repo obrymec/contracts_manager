@@ -4,19 +4,14 @@
 * @author: Obrymec - obrymecsprinces@gmail.com
 * @file: formulary.css
 * @created: 2022-01-30
-* @updated: 2024-01-07
+* @updated: 2024-01-28
 * @supported: DESKTOP
 * @version: 0.0.2
 */
 
-/* Colors theme */
-:root {
-	--white-300: rgb(235, 235, 235);
-	--error-color: rgb(255, 0, 76);
-	--primary-color: #075e54;
-	--silver: silver;
-	--white: #fff;
-	--gray: grey;
+/* Input hover */
+div.form-field > input:hover, div.form-field > textarea:hover {
+	border-color: var(--primary-color);
 }
 
 /* Dropdown icon select hover */
@@ -44,8 +39,8 @@ div.form-container {
 div.field-error > textarea,
 div.field-error > select,
 div.field-error > input {
-	box-shadow: 0 0 6px var(--error-color);
-	border: 1px solid var(--error-color);
+	border: 1px solid var(--error-color) !important;
+	box-shadow: 0 0 1px var(--error-color);
 }
 
 /* Dropdown select hover */
@@ -117,9 +112,9 @@ div.formulary {
 /* Input field disabled */
 div.field-disabled > input {
 	background-color: var(--white-300);
+	color: var(--gray-300) !important;
 	border: 1px solid var(--silver);
 	pointer-events: none;
-	color: var(--gray);
 	font-weight: bold;
 	box-shadow: none;
 	animation: none;
@@ -130,6 +125,7 @@ div.form-field > textarea,
 div.form-field > select,
 div.form-field > input {
 	transition-property: color, box-shadow, border;
+	color: var(--primary-color-100);
 	border: 1px solid var(--silver);
 	background-color: var(--white);
 	padding: 7px 30px 7px 12px;

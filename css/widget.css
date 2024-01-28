@@ -3,23 +3,11 @@
 * @author: Obrymec - obrymecsprinces@gmail.com
 * @fileoverview: The widget popup stylesheet.
 * @created: 2022-01-30
-* @updated: 2024-01-07
+* @updated: 2024-01-28
 * @supported: DESKTOP
 * @file: widget.css
 * @version: 0.0.2
 */
-
-/* Colors theme */
-:root {
-	--slight-black: rgba(0, 0, 0, 0.8);
-	--white-400: rgb(220, 220, 220); 
-	--primary-color-100: #04463e;
-	--primary-color: #075e54;
-	--black-400: #343434;
-	--black: #000;
-	--white: #fff;
-	--gray: grey;
-}
 
 /* Card and widget option hover */
 div.msg-options > button:hover,

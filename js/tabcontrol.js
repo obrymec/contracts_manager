@@ -2,10 +2,10 @@
 * @project Contracts Manager - https://contracts-manager.onrender.com/
 * @fileoverview The tabcontrol component to group main options.
 * @author Obrymec - obrymecsprinces@gmail.com
+* @file tabcontrol.js
 * @created 2022-01-30
-* @updated 2024-01-21
+* @updated 2024-01-28
 * @supported DESKTOP
-* @file contracts.js
 * @version 0.0.2
 */
 
@@ -33,8 +33,8 @@ function TabControl (parent, id = null) {
 	}
 
 	// Apply a css effect to the passed section id.
-	this._select = (id, background, shadow, index, cursor) => {
-		// Checks color and shadow of the section label.
+	this._select = (id, background, index, cursor) => {
+		// Checks color of the section label.
 		$ (id + " > label").css ("cursor", cursor); act_opt = index; last_id = id;
 		// Changes border bottom shape of the section container.
 		$ (id).css ("border-bottom", background).css ("cursor", cursor);
@@ -59,7 +59,7 @@ function TabControl (parent, id = null) {
 					// Checks the current section.
 					if (index === active) {
 						// Changes the tab section default appearance.
-						this._select (sec_id, "2px solid #fff", "0 0 7px #fff", index, "auto"); act_opt = active;
+						this._select (sec_id, "2px solid #fff", index, "auto"); act_opt = active;
 						// Runs the passed slot whether his value is correct.
 						if (typeof section.click === "function") section.click (__ (sec_id));
 					// Fixing mouse over control.
@@ -69,9 +69,9 @@ function TabControl (parent, id = null) {
 						// Checks the passed section index.
 						if (index != act_opt && window.SELECT && network_manager ()) {
 							// Disables the last tab section.
-							if (last_id != null) this._select (last_id, "2px solid transparent", "0 0 6px black", index, "pointer");
+							if (last_id != null) this._select (last_id, "2px solid transparent", index, "pointer");
 							// Makes sure that the current tab section is active.
-							this._select (sec_id, "2px solid #fff", "0 0 7px #fff", index, "auto");
+							this._select (sec_id, "2px solid #fff", index, "auto");
 							// Runs the passed slot whether his value is correct.
 							section.click (__ (sec_id));
 						}

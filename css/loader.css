@@ -3,17 +3,11 @@
 * @fileoverview: The generic loader stylesheet.
 * @author: Obrymec - obrymecsprinces@gmail.com
 * @created: 2022-01-30
-* @updated: 2024-01-07
+* @updated: 2024-01-28
 * @supported: DESKTOP
 * @file: loader.css
 * @version: 0.0.2
 */
-
-/* Colors theme */
-:root {
-	--gray-300: rgb(150, 150, 150);
-	--black: #000;
-}
 
 /* Loader text container */
 div.loader-text {
@@ -22,6 +16,7 @@ div.loader-text {
 
 /* Loader container */
 div.it-ld-ctr {
+	transform: translate(3px, .6px);
 	gap: 8px;
 }
 

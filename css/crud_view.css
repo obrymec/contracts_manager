@@ -4,18 +4,10 @@
 * @fileoverview: The crud view stylesheet.
 * @file: crud_view.css
 * @created: 2022-01-30
-* @updated: 2024-01-07
+* @updated: 2024-01-28
 * @supported: DESKTOP
 * @version: 0.0.2
 */
-
-/* Colors theme */
-:root {
-	--white-300: rgb(235, 235, 235);
-	--primary-color: #075e54;
-	--silver: silver;
-	--gray: grey;
-}
 
 /* Searcher icon */
 div.shi > svg {
@@ -125,6 +117,7 @@ div.ari, div.shi, div.rfi {
 /* Search input field */
 div.search-field > input[type="text"] {
 	box-shadow: inset 0 2px 2.5px var(--gray);
+	color: var(--primary-color-100);
 	padding: 15px 32px 15px 35px;
 	transition: color 0.4s;
 	font-family: verdana;

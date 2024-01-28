@@ -4,10 +4,25 @@
 * @author: Obrymec - obrymecsprinces@gmail.com
 * @file: variables.css
 * @created: 2024-01-21
-* @updated: 2024-01-21
+* @updated: 2024-01-28
 * @supported: DESKTOP
 * @version: 0.0.1
 */
 
 /* Colors theme */
-
+:root {
+  --slight-black: rgba(0, 0, 0, 0.8);
+  --white-300: rgb(235, 235, 235);
+	--white-400: rgb(220, 220, 220);
+  --gray-300: rgb(150, 150, 150);
+  --error-color: rgb(255, 0, 76);
+  --primary-color-100: #032e29;
+	--primary-color-200: #04463e;
+  --primary-color-400: #719c98;
+	--primary-color: #075e54;
+	--black-400: #343434;
+  --silver: silver;
+	--black: #000;
+	--white: #fff;
+	--gray: grey;
+}

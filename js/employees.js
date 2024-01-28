@@ -3,14 +3,14 @@
 * @fileoverview Manages free sign up employee(s).
 * @author Obrymec - obrymecsprinces@gmail.com
 * @created 2022-01-30
-* @updated 2024-01-21
+* @updated 2024-01-28
 * @supported DESKTOP
 * @file employees.js
 * @version 0.0.2
 */
 
 // Attributes.
-window.emps_keys = ["Prénom(s)", "Nom", "Durée", "Date d'enregistrement", "Date d'embauche", "Date d'expiration", "ID"];
+window.emps_keys = ["Surname(s)", "Name", "Duration", "Register date", "Hiring date", "Expiration date", "ID", "Employee"];
 window.emps_tc = new TabControl ("div.employees-manager", "emps-tabctrl");
 window.emps_sec_idx = get_cookie ("emps_tab_sec");
 window.emps_sec_idx = parseInt (!is_empty (window.emps_sec_idx) ? window.emps_sec_idx : 0);
@@ -74,7 +74,7 @@ function draw_employee (item, toolbar, index, length) {
 				generic_task ("add-mistake", "Reporting of misconduct", null, null, empcard);
 			}}), new Object ({text: "Stop", title: "Stop the contract established on this employee.", click: () => {
 				// Lauches an ajax request.
-				make_request ("/remove-contract", "POST", new Object ({id: item.ID, employee: item ["Employé"]}), server => {
+				make_request ("/remove-contract", "POST", new Object ({id: item.ID, employee: item ["Employee"]}), server => {
 					// No errors found.
 					if (!server.errors) {
 						// Displays a message.

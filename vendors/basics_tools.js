@@ -4,7 +4,7 @@
 * @author Obrymec - obrymecsprinces@gmail.com
 * @file basics_tools.js
 * @created 2022-01-30
-* @updated 2024-01-21
+* @updated 2024-01-28
 * @supported DESKTOP
 * @version 0.0.2
 */
@@ -131,12 +131,12 @@ function draw_loader (data, clear_parent_content = false) {
 			// Generating loader html tags.
 			$ (data.parent).append ("<div class = 'it-loader' id = 'ld-" + data.id + "'>\
 				<div class = 'it-ld-ctr' title = \"" + data.title + "\"><div class = 'loader-icon' id = 'ld-in-" + data.id + "'>\
-                    <svg viewBox = '0 0 32 32' height = '35px' width = '35px'>\
-                        <circle class = 'st0' cx = '16' cy = '5' r = '2'/><circle class = 'st0' cx = '8.2' cy = '8.2' r = '2'/>\
-                        <circle class = 'st0' cx = '5' cy = '16' r = '2'/><circle class = 'st0' cx = '8.2' cy = '23.8' r = '2'/>\
-                        <circle class = 'st0' cx = '16' cy = '27' r = '2'/><circle class = 'st0' cx = '23.8' cy = '23.8' r = '2'/>\
-                        <circle class = 'st0' cx = '27' cy = '16' r = '2'/><circle class = 'st0' cx = '23.8' cy = '8.2' r = '2'/>\
-                    </svg>\
+					<svg viewBox = '0 0 32 32' height = '35px' width = '35px'>\
+						<circle class = 'st0' cx = '16' cy = '5' r = '2'/><circle class = 'st0' cx = '8.2' cy = '8.2' r = '2'/>\
+						<circle class = 'st0' cx = '5' cy = '16' r = '2'/><circle class = 'st0' cx = '8.2' cy = '23.8' r = '2'/>\
+						<circle class = 'st0' cx = '16' cy = '27' r = '2'/><circle class = 'st0' cx = '23.8' cy = '23.8' r = '2'/>\
+						<circle class = 'st0' cx = '27' cy = '16' r = '2'/><circle class = 'st0' cx = '23.8' cy = '8.2' r = '2'/>\
+					</svg>\
 				</div><div class = 'loader-text' id = 'ld-tt-" + data.id + "'><label>" + data.label + "</label></div></div>\
 			</div>");
 			// Contains all usefull references.

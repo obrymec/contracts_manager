@@ -3,7 +3,7 @@
 * @fileoverview Manages all app requests sent from the client.
 * @author Obrymec - obrymecsprinces@gmail.com
 * @created 2022-01-30
-* @updated 2024-01-21
+* @updated 2024-01-28
 * @supported DESKTOP
 * @version 0.0.2
 * @file api.js
@@ -194,13 +194,13 @@ module.exports.override_contract = function override_contract (data, result) {
 				// Checks whether the specified contract is already exists on the database.
 				dbmanager.find ("it_manager", "contracts", new Object ({query: new Object ({_id: data [0].value})}), contract => {
 					// Compares the initial date to the last date of the old target employee's contract.
-					if (override_date >= _parse_date (contract ["Date d'expiration"])) {
+					if (override_date >= _parse_date (contract ["Expiration date"])) {
 						// Contains all keys that will be updated into the database.
-						let modifiers = new Object ({"Date d'embauche": data [1].value, "Date d'expiration": data [2].value, "Durée": data [3].value});
+						let modifiers = new Object ({"Hiring date": data [1].value, "Expiration date": data [2].value, "Duration": data [3].value});
 						// Updates the database.
 						dbmanager.update ("it_manager", "contracts", modifiers, new Object ({_id: data [0].value}), false,
 						() => result (new Object ({errors: false,
-							message: ("Renewal of an employee contract <strong>" + contract ["Employé"] + "</strong> was carried out successfully.")
+							message: ("Renewal of an employee contract <strong>" + contract ["Employee"] + "</strong> was carried out successfully.")
 						})));
 					// Otherwise.
 					} else result (new Object ({errors: [new Object ({id: data [1].id, message: ("The start date of the contract to be renewed" +
@@ -221,20 +221,20 @@ module.exports.add_employee = function add_employee (data, result) {
 		// Checks potentials errors on the given formulary fields.
 		let answer = _generic_checker (data); if (typeof answer.errors === "boolean") {
 			// Contains the request query.
-			let query = new Object ({$and: [new Object ({Nom: new Object ({$regex: ('^' + data [0].value + '$'), $options: 'i'})}),
-				new Object ({"Prénom(s)": new Object ({$regex: ('^' + data [1].value + '$'), $options: 'i'})})]});
+			let query = new Object ({$and: [new Object ({Name: new Object ({$regex: ('^' + data [0].value + '$'), $options: 'i'})}),
+				new Object ({"Surname(s)": new Object ({$regex: ('^' + data [1].value + '$'), $options: 'i'})})]});
 			// Checks whether the specified employee is already exists on the database.
 			dbmanager.find ("it_manager", "employees", new Object ({query: query}), employee => {
 				// No results found.
 				if (employee == null) {
 					// Inserts the given formulary data into the database.
 					dbmanager.insert ("it_manager", "employees", new Object ({
-						Nom: data [0].value, "Prénom(s)": data [1].value, "Date d'enregistrement": data [2].value, Fautes: []
+						Name: data [0].value, "Surname(s)": data [1].value, "Register date": data [2].value, Faults: []
 					}), states => result (new Object ({
-						message: ("The employee <strong>" + states.data ["Prénom(s)"] + ' ' + states.data.Nom.toUpperCase () + "</strong>"
+						message: ("The employee <strong>" + states.data ["Surname(s)"] + ' ' + states.data.Name.toUpperCase () + "</strong>"
 						+ " has been successfully registered on the system."), errors: false, data: new Object ({
-							ID: states.data._id, Nom: states.data.Nom, "Prénom(s)": states.data ["Prénom(s)"],
-							"Date d'enregistrement": states.data ["Date d'enregistrement"], disabled: ["ID"]
+							ID: states.data._id, Name: states.data.Name, "Surname(s)": states.data ["Surname(s)"],
+							"Register date": states.data ["Register date"], disabled: ["ID"]
 						})
 					})));
 				// Otherwise.
@@ -258,28 +258,28 @@ module.exports.add_contract = function add_contract (data, result) {
 				// Getting employee parts.
 				let emp_parts = _get_name_surnames (data [0].value);
 				// Contains the request query for finding an employee.
-				let query = new Object ({$and: [new Object ({Nom: new Object ({$regex: ('^' + emp_parts [0] + '$'), $options: 'i'})}),
-					new Object ({"Prénom(s)": new Object ({$regex: ('^' + emp_parts [1] + '$'), $options: 'i'})})]});
+				let query = new Object ({$and: [new Object ({Name: new Object ({$regex: ('^' + emp_parts [0] + '$'), $options: 'i'})}),
+					new Object ({"Surname(s)": new Object ({$regex: ('^' + emp_parts [1] + '$'), $options: 'i'})})]});
 				// Finds the given employee into the database.
 				dbmanager.find ("it_manager", "employees", new Object ({query: query}), employee => {
 					// Checks the start date with the employee save date.
-					if (_parse_date (data [1].value) >= _parse_date (employee ["Date d'enregistrement"])) {
+					if (_parse_date (data [1].value) >= _parse_date (employee ["Register date"])) {
 						// Contains the request query.
-						query = new Object ({$and: [new Object ({"Employé": new Object ({$regex: ('^' + data [0].value + '$'), $options: 'i'})})]});
+						query = new Object ({$and: [new Object ({"Employee": new Object ({$regex: ('^' + data [0].value + '$'), $options: 'i'})})]});
 						// Checks whether the specified contract is already exists on the database.
 						dbmanager.find ("it_manager", "contracts", new Object ({query: query}), contract => {
 							// Checks whether an element won't respect the future statement.
 							let is_busy = false; for (let item of contract) {
 								// If ever an item don't respect this statement.
-								if (_parse_date (item ["Date d'expiration"]) > _get_date (true)) {is_busy = true; break;}
+								if (_parse_date (item ["Expiration date"]) > _get_date (true)) {is_busy = true; break;}
 							// No results found.
 							} if (contract == null || Array.isArray (contract) && contract.length === 0 || !is_busy) {
 								// Inserts the given formulary data into the database.
-								dbmanager.insert ("it_manager", "contracts", new Object ({"Employé": data [0].value, "Date d'embauche": data [1].value,
-									"Date d'expiration": data [2].value, "Durée": data [3].value
+								dbmanager.insert ("it_manager", "contracts", new Object ({"Employee": data [0].value, "Hiring date": data [1].value,
+									"Expiration date": data [2].value, "Duration": data [3].value
 								}), states => result (new Object ({
-									message: ("A long-term contract <strong>" + states.data ["Durée"] + "</strong> was established on the employee " + 
-									"<strong>" + states.data ["Employé"] + "</strong>."), errors: false
+									message: ("A long-term contract <strong>" + states.data ["Duration"] + "</strong> was established on the employee " + 
+									"<strong>" + states.data ["Employee"] + "</strong>."), errors: false
 								})));
 							// Otherwise.
 							} else result (new Object ({errors: ("A contract is already in progress on the employee <strong>" + data [0].value + "</strong>.")}));
@@ -303,27 +303,27 @@ module.exports.add_mistake = function add_mistake (data, result) {
 		// Checks potentials errors on the given formulary fields.
 		let answer = _generic_checker (data); if (typeof answer.errors === "boolean") {
 			// Contains the request query.
-			let query = new Object ({$and: [new Object ({"Employé": new Object ({$regex: ('^' + data [0].value + '$'), $options: 'i'})})]});
+			let query = new Object ({$and: [new Object ({"Employee": new Object ({$regex: ('^' + data [0].value + '$'), $options: 'i'})})]});
 			// Checks whether the specified contract is already exists on the database.
 			dbmanager.find ("it_manager", "contracts", new Object ({query: query}), contract => {
 				// Contains the parsed form of the mistake date.
 				let mistake_date = _parse_date (data [2].value);
 				// Checks mistake date validity.
-				if (mistake_date >= _parse_date (contract ["Date d'embauche"]) && mistake_date < _parse_date (contract ["Date d'expiration"])) {
+				if (mistake_date >= _parse_date (contract ["Hiring date"]) && mistake_date < _parse_date (contract ["Expiration date"])) {
 					// Corrects the passed value and prepare the request.
 					data [0].value = _get_name_surnames (data [0].value); let query = new Object ({$and: [
-						new Object ({Nom: new Object ({$regex: ('^' + data [0].value [0] + '$'), $options: 'i'})}),
-					new Object ({"Prénom(s)": new Object ({$regex: ('^' + data [0].value [1] + '$'), $options: 'i'})})
+						new Object ({Name: new Object ({$regex: ('^' + data [0].value [0] + '$'), $options: 'i'})}),
+					new Object ({"Surname(s)": new Object ({$regex: ('^' + data [0].value [1] + '$'), $options: 'i'})})
 					// Checks the given employee object id from the database.
 					]}); dbmanager.find ("it_manager", "employees", new Object ({query: query}), employee => {
 						// A result has been found.
 						if (employee != null) {
 							// Getting the current employee mistakes.
-							let mistakes = employee.Fautes; mistakes.push (new Object ({Type: data [1].value, Date: data [2].value, Motif: data [3].value}));
+							let mistakes = employee.Faults; mistakes.push (new Object ({Type: data [1].value, Date: data [2].value, Description: data [3].value}));
 							// Updates the database.
-							dbmanager.update ("it_manager", "employees", new Object ({Fautes: mistakes}), new Object ({_id: employee._id}), false,
+							dbmanager.update ("it_manager", "employees", new Object ({Faults: mistakes}), new Object ({_id: employee._id}), false,
 							() => result (new Object ({errors: false,
-								message: ("A misconduct has been reported on the employee <strong>" + employee ["Prénom(s)"] + ' ' + employee.Nom.toUpperCase () + "</strong>.")
+								message: ("A misconduct has been reported on the employee <strong>" + employee ["Surname(s)"] + ' ' + employee.Name.toUpperCase () + "</strong>.")
 							})));
 						}
 					});
@@ -351,7 +351,7 @@ module.exports.load_availables_employees = function load_availables_employees (e
 					// Otherwise.
 					else result (new Object ({data: _.filter (response, employee => {
 						// Constraints for getting employees.
-						return (res ["Employé"] !== (employee ["Prénom(s)"] + ' ' + employee.Nom.toUpperCase ()));
+						return (res ["Employee"] !== (employee ["Surname(s)"] + ' ' + employee.Name.toUpperCase ()));
 					})}));
 				}, true);
 			});
@@ -376,7 +376,7 @@ module.exports.load_running_contracts = function load_running_contracts (data, r
 			// Otherwise.
 			else result (new Object ({data: _.filter (response, contract => {
 				// Constraints for getting all running contracts.
-				return (_get_date (true) < _parse_date (contract ["Date d'expiration"]));
+				return (_get_date (true) < _parse_date (contract ["Expiration date"]));
 			})}));
 		}, true);
 	}, result);
@@ -393,7 +393,7 @@ module.exports.load_expired_contracts = function load_expired_contracts (data, r
 			// Otherwise.
 			else result (new Object ({data: _.filter (response, contract => {
 				// Constraints for getting all expired contracts.
-				return (_get_date (true) >= _parse_date (contract ["Date d'expiration"]));
+				return (_get_date (true) >= _parse_date (contract ["Expiration date"]));
 			})}));
 		}, true);
 	}, result);
@@ -415,14 +415,14 @@ module.exports.load_mistakes = function load_mistakes (data, result) {
 	// Connects app to the database.
 	_connect_to_db (() => {
 		// Contains the request query.
-		let query = new Object ({$and: [new Object ({Nom: new Object ({$regex: ('^' + data.name + '$'), $options: 'i'})}),
-			new Object ({"Prénom(s)": new Object ({$regex: ('^' + data.surname + '$'), $options: 'i'})})]});
+		let query = new Object ({$and: [new Object ({Name: new Object ({$regex: ('^' + data.name + '$'), $options: 'i'})}),
+			new Object ({"Surname(s)": new Object ({$regex: ('^' + data.surname + '$'), $options: 'i'})})]});
 		// Loads all mistakes.
 		dbmanager.find ("it_manager", "employees", new Object ({query: query}), response => {
 			// No results found.
 			if (response == null || Array.isArray (response) && !response.length) result (new Object ({data: []}));
 			// Otherwise.
-			else result (new Object ({data: response.Fautes}));
+			else result (new Object ({data: response.Faults}));
 		});
 	}, result);
 }

@@ -4,17 +4,10 @@
 * @fileoverview: The dashboard stylesheet.
 * @file: dashboard.css
 * @created: 2022-01-30
-* @updated: 2024-01-07
+* @updated: 2024-01-28
 * @supported: DESKTOP
 * @version: 0.0.2
 */
-
-/* Colors theme */
-:root {
-	--primary-color: #075E54;
-	--white: #fff;
-	--black: #000;
-}
 
 /* When an option is selected */
 div.active-option {
@@ -118,8 +111,6 @@ div.dashboard-option {
 /* Page global header */
 div.header {
 	background-color: var(--primary-color);
-	border-right: 1px solid var(--white);
-	box-shadow: 0 0 4px var(--black);
 	padding: 5px 10px 5px 10px;
 	justify-content: center;
 	position: relative;

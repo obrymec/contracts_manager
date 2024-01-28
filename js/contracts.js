@@ -3,14 +3,14 @@
 * @fileoverview Manages fetched contract(s) from server.
 * @author Obrymec - obrymecsprinces@gmail.com
 * @created 2022-01-30
-* @updated 2024-01-21
+* @updated 2024-01-28
 * @supported DESKTOP
 * @file contracts.js
 * @version 0.0.2
 */
 
 // Attributes.
-window.cnts_keys = ["Employé", "Date d'embauche", "Date d'expiration", "Durée", "ID"];
+window.cnts_keys = ["Employee", "Hiring date", "Expiration date", "Duration", "ID"];
 window.cnts_tc = new TabControl ("div.contracts-manager", "cnts-tabctrl");
 window.cnts_sec_idx = get_cookie ("cnts_tab_sec");
 window.cnts_sec_idx = parseInt (!is_empty (window.cnts_sec_idx) ? window.cnts_sec_idx : 0);
@@ -76,11 +76,11 @@ function draw_contract (item, toolbar, index, length) {
 		if (window.cnts_tc.get_active_section () === 0) ctcard.override_options ([
 			new Object ({text: "Stop", title: "Stop this contract.", click: () => {
 					// Lauches an ajax request.
-					make_request ("/remove-contract", "POST", new Object ({id: item.ID, employee: item ["Employé"]}), server => {
+					make_request ("/remove-contract", "POST", new Object ({id: item.ID, employee: item ["Employee"]}), server => {
 						// No errors found.
 						if (!server.errors) {
 							// Displays a message.
-							const msg = new MessageBox ("div.other-views", new Object ({title: "Méssage serveur", zindex: 1, color: "green",
+							const msg = new MessageBox ("div.other-views", new Object ({title: "Server message", zindex: 1, color: "green",
 								text: server.message, options: [
 									new Object ({text: "OK", title: "Ok.", click: () => msg.visibility (false, () => {
 										// Destroys the associated data card.

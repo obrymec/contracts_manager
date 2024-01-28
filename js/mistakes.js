@@ -3,7 +3,7 @@
 * @fileoverview Loads and displays all faults of an employees.
 * @author Obrymec - obrymecsprinces@gmail.com
 * @created 2022-01-30
-* @updated 2024-01-21
+* @updated 2024-01-28
 * @supported DESKTOP
 * @file mistakes.js
 * @version 0.0.2
@@ -39,8 +39,8 @@ function load_mistakes () {
 	// Empty the crud content.
 	$ (window.msk_crud.get_content_id () + " > div.data-card").remove (); $ (window.msk_crud.get_input_id ()).val ('');
 	// Contains all data that will be sent to the server.
-	let employee = ((window.empcard.get_data ().hasOwnProperty ("Employé")) ? get_name_surnames (window.empcard.get_data () ["Employé"])
-	: [window.empcard.get_data ().Nom, window.empcard.get_data () ["Prénom(s)"]]); window.msk_crud.get_data ().length = 0;
+	let employee = ((window.empcard.get_data ().hasOwnProperty ("Employee")) ? get_name_surnames (window.empcard.get_data () ["Employee"])
+	: [window.empcard.get_data ().Name, window.empcard.get_data () ["Surname(s)"]]); window.msk_crud.get_data ().length = 0;
 	// Empty the crud data by clearing it and loads availables mistakes.
 	make_request ("/mistakes-availables", "POST", new Object ({name: employee [0], surname: employee [1]}), server_data => {
 		// Loading availables mistakes from the database.
@@ -48,7 +48,7 @@ function load_mistakes () {
 			// Draws all logged mistakes.
 			let mdate = element.Date.split ('-'); draw_mistake (new Object ({
 				ID: element._id, Date: parse_date (parseInt (mdate [2]), parseInt (mdate [1]), parseInt (mdate [0])),
-				Description: element.Motif, Type: element.Type, disabled: ["ID"]
+				Description: element.Description, Type: element.Type, disabled: ["ID"]
 			}));
 		// Listens crud data.
 		}); listen_crud_data (window.msk_crud);

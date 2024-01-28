@@ -4,16 +4,10 @@
 * @fileoverview: The tab control stylesheet.
 * @file: tab_control.css
 * @created: 2022-01-30
-* @updated: 2024-01-07
+* @updated: 2024-01-28
 * @supported: DESKTOP
 * @version: 0.0.2
 */
-
-/* Colors theme */
-:root {
-	--primary-color: #075e54;
-	--white: #fff;
-}
 
 /* Content */
 div.tab-content {
