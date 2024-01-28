@@ -1,0 +1,126 @@
+<body>
+	<!--Sign up section-->
+	<div class = "fixed sign">
+		<!--Sign up form-->
+		<div class = "form">
+			<!--Sign up title-->
+			<div class = "title">
+				<span>Sign up</span>
+			</div>
+			<!--Pseudo input field-->
+			<div
+				class = "input-container ic1"
+				title = "Type your pseudo."
+			>
+				<!--Input field-->
+				<input
+					class = "input pseudo"
+					placeholder = ' '
+					id = "firstname"
+					name = "pseudo"
+					type = "text"
+				/>
+				<!--Separator-->
+				<div
+					class = "cut pseudo-cut"
+				></div>
+				<!--Tag-->
+				<label
+					class = "placeholder"
+					for = "firstname"
+				>Pseudo</label>
+			</div>
+			<!--Email input field-->
+			<div
+				class = "input-container ic2"
+				title = "Type your email."
+			>
+				<!--Input field-->
+				<input
+					autocomplete = "additional-name"
+					class = "input email"
+					placeholder = ' '
+					name = "email"
+					type = "text"
+					id = "email"
+				/>
+				<!--Separator-->
+				<div
+					class = "cut email-cut"
+				></div>
+				<!--Tag-->
+				<label
+					class = "placeholder"
+					for = "email"
+				>Email</label>
+			</div>
+			<!--Password input field-->
+			<div
+				title = "What password did you choose ?"
+				class = "input-container ic2"
+			>
+				<!--Input field-->
+				<input
+					class = "input password"
+					type = "password"
+					placeholder = ' '
+					id = "password"
+					name = "pass"
+				/>
+				<!--Separator-->
+				<div
+					class = "cut password-cut"
+				></div>
+				<!--Tag-->
+				<label
+					class = "placeholder"
+					for = "password"
+				>Password</label>
+			</div>
+			<!--Confirm password input field-->
+			<div
+				title = "Confirm the referred password."
+				class = "input-container ic2"
+			>
+				<!--Input field-->
+				<input
+					class = "input confirm-password"
+					type = "password"
+					placeholder = ' '
+					id = "confirm"
+				/>
+				<!--Separator-->
+				<div
+					class = "cut confirm-password-cut"
+				></div>
+				<!--Tag-->
+				<label
+					class = "placeholder"
+					for = "confirm"
+				>Confirm password</label>
+			</div>
+			<!--Spaces-->
+			<br/>
+			<!--Sign up button option-->
+			<button
+				class = "submit sign-up"
+				title = "Sign up."
+				name = "account"
+				type = "text"
+			>Sign up</button>
+			<!--Spaces-->
+			<br/><br/>
+			<!--Login button option-->
+			<button
+				class = "submit sign-up-login"
+				title = "Sign in."
+				type = "text"
+			>Sign in</button>
+		</div>
+	</div>
+	<!--Controller-->
+	<script
+		src = "./sources/features/sign_up/sign_up.js"
+		type = "text/javascript"
+	></script>
+</body>

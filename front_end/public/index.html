@@ -1,0 +1,148 @@
+<!--
+	@project: Contracts Manager - https://contracts-manager.onrender.com/
+	@author: Obrymec - obrymecsprinces@gmail.com
+	@fileoverview: The global html structure.
+	@created: 2022-02-03
+	@updated: 2024-01-28
+	@supported: DESKTOP
+	@file: index.html
+	@version: 0.0.2
+-->
+
+<!--Contracts manager-->
+<head>
+	<!--Title-->
+	<title>Contracts manager</title>
+	<!--Favicon-->
+	<link
+		href = "./public/favicon.ico"
+		rel = "shortcut icon"
+		type = "image/ico"
+	/>
+	<link
+		href = "./public/favicon.ico"
+		type = "image/ico"
+		rel = "icon"
+	/>
+	<!--PWA-->
+	<meta
+		name = "apple-mobile-web-status-bar"
+		content = "black"
+	/>
+	<link
+		href = "./assets/logos/logo-96.png"
+		rel = "apple-touch-icon"
+	/>
+	<meta
+		http-equiv = "X-UA-Compatible"
+		content = "id=edge"
+	/>
+	<link
+		href = "./public/manifest.json"
+		rel = "manifest"
+	/>
+	<meta
+		name = "theme-color"
+		content = "black"
+	/>
+	<!--Meta configs-->
+	<meta
+		content = "https://contracts-manager.onrender.com/assets/render/render_1.png"
+		name = "twitter:image"
+	/>
+	<meta
+		content = "https://contracts-manager.onrender.com/assets/render/render_1.png"
+		property = "og:image"
+	/>
+	<meta
+		content = "https://contracts-manager.onrender.com/"
+		property = "og:url"
+	/>
+	<meta
+		content = "https://contracts-manager.onrender.com/"
+		name = "twitter:card"
+	/>
+	<meta
+		content = "width=device-width, initial-scale=1.0"
+		charset = "utf-8"
+		name = "viewport"
+	/>
+	<meta
+		content = "Contracts Manager"
+		property = "og:site_name"
+	/>
+	<meta
+		content = "The login page."
+		name = "twitter:image:alt"
+	/>
+	<meta
+		content = "The login page"
+		name = "tweetmeme-title"
+	/>
+	<meta
+		content = "The login page"
+		name = "twitter:title"
+	/>
+	<meta
+		content = "The login page"
+		property = "og:title"
+	/>
+	<meta
+		property = "og:type"
+		content = "article"
+	/>
+	<meta
+		property = "og:local"
+		content = "en_US"
+	/>
+	<meta
+		name = "twitter:description"
+		content = "
+			This small project is an
+			academy project. It has
+			been developed with Native
+			Web Development Languages.
+		"
+	/>
+	<meta
+		property = "og:description"
+		content = "
+			This small project is an
+			academy project. It has
+			been developed with Native
+			Web Development Languages.
+		"
+	/>
+	<meta
+		name = "description"
+		content = "
+			This small project is an
+			academy project. It has
+			been developed with Native
+			Web Development Languages.
+		"
+	/>
+</head>
+<!--Global body-->
+<body>
+	<!--Views containers-->
+	<div class = "views"></div>
+	<div class = "other-views"></div>
+	<div class = "sources"></div>
+	<!--External dependencies-->
+	<script
+		src = "./sources/utils/jquery.js"
+		type = "text/javascript"
+	></script>
+	<!--Controller-->
+	<script type = "text/javascript">
+		// Loads dependencies.
+		$ (window).on (
+			"load", () => (
+				$ ("div.sources").load (
+					"./public/sources.html"
+				)
+			)
+		);
+	</script>
+</body>

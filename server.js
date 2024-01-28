@@ -3,7 +3,7 @@
 * @project Contracts Manager - https://contracts-manager.onrender.com/
 * @author Obrymec - obrymecsprinces@gmail.com
 * @created 2022-01-30
-* @updated 2024-01-07
+* @updated 2024-01-28
 * @supported DESKTOP
 * @file server.js
 * @version 0.0.2
@@ -16,15 +16,12 @@ const app = express ();
 const port = 5300;
 
 // Custom dependencies.
-const api = require ("./vendors/api.js");
+const api = require ("./back_end/api.js");
+const root = `${__dirname}/front_end`;
 
 // App configurations.
+app.use (express.static (root));
 app.use (parser.json ());
-app.use (
-  express.static (
-    __dirname
-  )
-);
 app.use (
   parser.urlencoded ({
     extended: true
@@ -35,7 +32,7 @@ app.use (
 app.get ('/', (_, res) => (
   res.sendFile (
     "index.html", {
-      root: __dirname
+      root: `${root}/public`
     }
   )
 ));

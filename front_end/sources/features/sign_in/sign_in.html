@@ -1,0 +1,80 @@
+<body>
+	<!--Sign in section-->
+	<div class = "fixed sign">
+		<!--Login contain-->
+		<div class = "login">
+			<!--Login title-->
+			<div class = "title">
+				<span>Sign in</span>
+			</div>
+			<!--Firstname input container-->
+			<div
+				class = "input-container ic1" 
+				title = "Type your pseudo."
+			>
+				<!--Input field-->
+				<input
+					class = "input email"
+					id = "firstname"
+					type = "email"
+					name = "pseudo"
+					placeholder = ' '
+				/>
+				<!--Separator-->
+				<div
+					class = "cut pseudo-cut"
+				></div>
+				<!--Tag-->
+				<label
+					class = "placeholder"
+					for = "firstname"
+				>Pseudo</label>
+			</div>
+			<!--Password input container-->
+			<div
+				class = "input-container ic2"
+				title = "Type your password."
+			>
+				<!--Input field-->
+				<input
+					class = "input password"
+					type = "password"
+					name = "password"
+					placeholder = ' '
+					id = "password"
+				/>
+				<!--Separator-->
+				<div
+					class = "cut password-cut"
+				></div>
+				<!--Tag-->
+				<label
+					class = "placeholder"
+					for = "password"
+				>Password</label>
+			</div>
+			<!--Spaces-->
+			<br/><br/>
+			<!--Connection button-->
+			<button
+				class = "submit login"
+				title = "Sign in."
+				type = "text"
+			>Sign in</button>
+			<!--Spaces-->
+			<br/><br/><br/>
+			<!--Sign up button-->
+			<button
+				class = "submit login-sign-up"
+				title = "Sign up."
+				name = "submit"
+				type = "text"
+			>Sign up</button>
+		</div>
+	</div>
+	<!--Controller-->
+	<script
+		src = "./sources/features/sign_in/sign_in.js"
+		type = "text/javascript"
+	></script>
+</body>
