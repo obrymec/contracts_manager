@@ -4,10 +4,10 @@
   "orientation": "portrait-primary",
   "name": "Contracts Manager",
   "background_color": "white",
+  "start_url": "./index.html",
   "id": "contractsmanager",
   "display": "standalone",
   "theme_color": "white",
-  "start_url": ".",
   "lang": "en",
   "categories": [
     "contracts management",

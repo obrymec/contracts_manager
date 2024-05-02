@@ -1,5 +1,5 @@
 /**
-* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @project Contracts Manager - https://contracts-manager.onrender.com
 * @fileoverview Manages mail sending from an address to another.
 * @author Obrymec - obrymecsprinces@gmail.com
 * @file mail_sender.js

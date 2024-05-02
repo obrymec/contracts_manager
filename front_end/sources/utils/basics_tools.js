@@ -1,5 +1,5 @@
 /**
-* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @project Contracts Manager - https://contracts-manager.onrender.com
 * @fileoverview A generic front-end tools for common uses cases.
 * @author Obrymec - obrymecsprinces@gmail.com
 * @file basics_tools.js

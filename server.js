@@ -1,9 +1,9 @@
 /**
 * @fileoverview Defines routes, paths and nodejs server configs with expressjs.
-* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @project Contracts Manager - https://contracts-manager.onrender.com
 * @author Obrymec - obrymecsprinces@gmail.com
 * @created 2022-01-30
-* @updated 2024-01-28
+* @updated 2024-05-02
 * @supported DESKTOP
 * @file server.js
 * @version 0.0.2
@@ -20,13 +20,9 @@ const api = require ("./back_end/api.js");
 const root = `${__dirname}/front_end`;
 
 // App configurations.
+app.use (parser.urlencoded ({extended: true}));
 app.use (express.static (root));
 app.use (parser.json ());
-app.use (
-  parser.urlencoded ({
-    extended: true
-  })
-);
 
 // Root route.
 app.get ('/', (_, res) => (
@@ -180,22 +176,15 @@ app.post (
 
 // Starts the server.
 app.listen (port, err => {
-	// Whether an error
-  // is thrown.
+	// Whether an error is thrown.
 	if (err) {
-		// Displays this
-    // error message.
-		console.error (
-			"Server Error: ", err
-		);
+		// Displays this error message.
+		console.error ("Server Error: ", err);
 	// Otherwise.
 	} else {
-		// Makes a warn
-    // about server
-    // starting.
+		// Makes a warn about server starting.
 		console.log (
-			"Server started at port: ",
-			port
+			"Server started at port: ", port
 		);
 	}
 });

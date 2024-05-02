@@ -1,5 +1,5 @@
 /**
-* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @project Contracts Manager - https://contracts-manager.onrender.com
 * @fileoverview The popup component widget to display a message.
 * @author Obrymec - obrymecsprinces@gmail.com
 * @created 2022-01-30

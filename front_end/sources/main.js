@@ -1,5 +1,5 @@
 /**
-* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @project Contracts Manager - https://contracts-manager.onrender.com
 * @fileoverview The base behaviours for app's features.
 * @author Obrymec - obrymecsprinces@gmail.com
 * @created 2022-01-30

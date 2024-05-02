@@ -1,5 +1,5 @@
 /**
-* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @project Contracts Manager - https://contracts-manager.onrender.com
 * @fileoverview Defines the way to sign up a user.
 * @author Obrymec - obrymecsprinces@gmail.com
 * @created 2022-01-30

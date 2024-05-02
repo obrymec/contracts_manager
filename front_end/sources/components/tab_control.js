@@ -1,5 +1,5 @@
 /**
-* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @project Contracts Manager - https://contracts-manager.onrender.com
 * @fileoverview The tabcontrol component to group main options.
 * @author Obrymec - obrymecsprinces@gmail.com
 * @file tabcontrol.js

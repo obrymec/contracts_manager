@@ -1,5 +1,5 @@
 /**
-* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @project Contracts Manager - https://contracts-manager.onrender.com
 * @fileoverview Sends expired contract(s) to app developer.
 * @author Obrymec - obrymecsprinces@gmail.com
 * @file expired_contracts.js

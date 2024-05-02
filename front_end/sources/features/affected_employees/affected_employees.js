@@ -1,5 +1,5 @@
 /**
-* @project Contracts Manager - https://contracts-manager.onrender.com/
+* @project Contracts Manager - https://contracts-manager.onrender.com
 * @fileoverview Loads employee(s) under contract.
 * @author Obrymec - obrymecsprinces@gmail.com
 * @file affected_employees.js

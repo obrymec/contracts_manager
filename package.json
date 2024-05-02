@@ -3,7 +3,7 @@
 	"author": "Obrymec - obrymecsprinces@gmail.com",
 	"name": "contracts-manager",
 	"main": "./server.js",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"private": "false",
 	"license": "MIT",
 	"bugs": {
