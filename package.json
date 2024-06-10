@@ -1,10 +1,10 @@
 {
 	"homepage": "https://github.com/obrymec/contracts_manager#readme",
-	"description": "A simple web app for contracts management.",
 	"author": "Obrymec - obrymecsprinces@gmail.com",
+	"description": "Contracts management.",
 	"name": "contracts-manager",
 	"main": "./server.js",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"private": "false",
 	"license": "MIT",
 	"bugs": {

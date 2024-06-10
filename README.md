@@ -1,8 +1,8 @@
 # Contracts Manager
 ![Full Stack Development](https://img.shields.io/badge/full%20stack%20development-0AC18E.svg?style=for-the-badge)
+![Progressive Web App](https://img.shields.io/badge/progressive%20web%20app-B59A30.svg?style=for-the-badge)
+![Employees Management](https://img.shields.io/badge/employees%20management-29334C?style=for-the-badge)
 ![Contracts Manager](https://img.shields.io/badge/contracts%20manager-075E54.svg?style=for-the-badge)
-![Web Application](https://img.shields.io/badge/web%20application-29334C?style=for-the-badge)
-![PWA](https://img.shields.io/badge/pwa-B59A30.svg?style=for-the-badge)
 
 This small project is academic. The main goal of the project is to manage
 contracts between employers and employees. It has been developed with
